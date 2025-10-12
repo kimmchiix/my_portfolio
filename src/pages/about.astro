@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../style/global.css";
+import Navi from "../components/Navi.astro";
+import Header from "../components/AboutHeader.astro"
+
+import Facts from "../components/AboutFacts.astro"
+const facts = [
+  { title: '2.5', subtitle: 'years of agency experience' },
+  { title: '10+', subtitle: 'Projects' },
+  { title: '50+', subtitle: 'Coffees a month' }
+];
+import TextSplit from '../components/TextSplit.astro';
+import Skills from "../components/Skills.astro";
+import FactsSmall from "../components/Facts.astro";
+
+import Footer from "../components/Footer.astro";
+---
+
+<Layout>
+ <Navi />
+ <Header
+ subheadline="About me"
+ headline="Kim Loreen"
+ text="I believe that design is more than visuals, but a language for storytelling. My goal is to create work that not only expresses ideas but also helps others share their own stories in a way that feels authentic and impactful."
+ image="/src/images/me-cover.png" />
+<section class="mx-9 xl:mx-[90px] pt-[60px] lg:pt-[180px]">
+  <Facts facts={facts} />
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[280px]">
+  <TextSplit
+    title="A Teamplayer at Heart"
+    content="I thrive in collaborative environments, believing that the best ideas come from diverse perspectives. I enjoy sharing knowledge and learning from others, whether through mentorship or team projects. My approach is always open and adaptable, ready to embrace new challenges and opportunities for growth."
+  />
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[100px]">
+  <TextSplit
+    title="A fast learner with a hunger for knowledge"
+    content="I’m always eager to learn and grow, whether it’s mastering a new design tool or exploring the latest trends in web design. My curiosity drives me to stay updated and continuously improve my skills, ensuring that I can bring fresh ideas, getting inspiration from design trends from all over the world. Outside of work, I enjoy learning Languages as well as learning about History especially Renaissance Artists."
+  />
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[100px]">
+  <TextSplit
+    title="The art of Organized Chaos"
+    content="My process is a little like organized chaos with a lot of drafts and a desktop that tells its own story, however out of that comes clarity and designs that are sharp, structured, and thoughtful. I thrive in the messy middle that leads to neat results."
+  />
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[280px]">
+  <Skills />
+</section>
+
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[280px] pb-[280px]">
+  <TextSplit
+    title="MY Goals for the Future"
+    content="I’m excited to continue growing as a designer, exploring new technologies, and pushing the boundaries of what’s possible in web design. My goal is to create work that not only meets client needs but also inspires and engages users on a deeper level. I want to wake up every day excited to create, work with like-minded Creatives and learn from Masters all over the World."
+   
+  />
+</section>
+ <Footer />
+</Layout>

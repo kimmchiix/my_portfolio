@@ -1,0 +1,26 @@
+---
+const { leftSrc, rightSrc, leftAlt = "", rightAlt = "", className = "" } = Astro.props;
+---
+
+
+<section class={` fade-up mx-9 xl:mx-[90px] min-h-[150vh] relative  ${className}`}>
+  <div class="flex flex-col md:flex-row h-full">
+    <!-- Left image -->
+    <div class="w-full md:w-1/2 flex items-start">
+      <img 
+        src={leftSrc} 
+        alt={leftAlt} 
+        class="w-full h-auto object-cover"
+      />
+    </div>
+
+    <!-- Right image, pushed down -->
+    <div class="w-full md:w-1/2 flex items-start mt-12 md:mt-[50%]">
+      <img 
+        src={rightSrc} 
+        alt={rightAlt} 
+        class="w-full h-auto object-cover"
+      />
+    </div>
+  </div>
+</section>

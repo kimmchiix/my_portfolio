@@ -1,0 +1,94 @@
+---
+
+interface Props {
+  headline?: string;
+  subheadline?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+}
+
+const {
+  headline = "Portfolio",
+  subheadline = "Designing with clarity & impact",
+  imageSrc,
+  imageAlt,
+}: Props = Astro.props;
+---
+
+<style>
+  .letter {
+    opacity: 0;
+    transform: translateY(40px);
+    display: inline-block;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .letter.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<section class="flex flex-col items-center justify-center text-center px-4 pt-36 overflow-hidden">
+  <!-- Headline -->
+  <h1 id="hero-headline">
+    {headline.split("").map((char, i) => (
+      <span
+        class="letter"
+        style={`transition-delay: ${i * 0.05}s`}
+       data-key=""={i}
+      >
+        {char === " " ? "\u00A0" : char}
+      </span>
+    ))}
+  </h1>
+
+  <!-- Subheadline (only render if it exists) -->
+  {subheadline && (
+    <p
+      id="hero-subheadline"
+      class="fade-up mt-2 text-base md:text-xl text-gray-600 max-w-xl"
+    >
+      {subheadline}
+    </p>
+  )}
+
+  <!-- Hero Image (only render if provided) -->
+  {imageSrc && (
+    <div id="hero-image" class="fade-up mt-10 w-full max-w-[385px] aspect-[4/5]">
+      <img
+        src={imageSrc}
+        alt={imageAlt ?? "Hero image"}
+        class="w-full h-[350px] object-cover shadow-lg"
+        loading="lazy"
+      />
+    </div>
+  )}
+</section>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const letters = document.querySelectorAll("#hero-headline .letter");
+    const subheadline = document.getElementById("hero-subheadline");
+    const image = document.getElementById("hero-image");
+
+    letters.forEach((letter, i) => {
+      setTimeout(() => {
+        letter.classList.add("visible");
+      }, i * 50);
+    });
+
+    // Only trigger subheadline and image if they exist
+    setTimeout(() => subheadline?.classList.add("visible"), letters.length * 50 + 400);
+    setTimeout(() => image?.classList.add("visible"), letters.length * 50 + 800);
+  });
+</script>

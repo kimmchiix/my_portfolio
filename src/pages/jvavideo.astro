@@ -1,0 +1,73 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../style/global.css";
+import Navi from "../components/Navi.astro";
+import Header from "../components/Df_herovideo.astro";
+import Facts from "../components/Facts.astro";
+const facts = [
+  { title: 'Project', subtitle: 'Recruiting Video' },
+  { title: 'Time', subtitle: '2 Weeks' },
+  { title: 'Technologies', subtitle: 'Premier Pro' }
+]; 
+import BentoGallery from '../components/BentoGallery.astro';
+const galleryImages = [
+  'https://placehold.co/600x600',
+  'https://placehold.co/600x600',
+  'https://placehold.co/600x600',
+  'https://placehold.co/600x600'
+];
+import TextSplit from '../components/TextSplit.astro';
+import Video from "../components/Video.astro";
+import Projectnav from '../components/Projectnav.astro';
+const projects = [
+  {
+    name: "Markt1 Website",
+    image: "/public/images/markt-landing.png",
+    href: "/markt1",
+  },
+  {
+    name: "Nu+ Skincare",
+    image: "/public/images/nu-thumbnail.png",
+    href: "/nuskincare",
+
+  },
+];
+import Footer from "../components/Footer.astro";
+---
+<Layout>
+    <Navi />
+    <Header
+    videoSrc="./videos/jva-hero.mp4"
+    headline="Reframing the Image: A Prison Recruiting Film Project"/>
+   <section class="mx-9 xl:mx-[90px] pt-[60px] lg:pt-[180px]">  
+    <Facts facts={facts} />
+    </section>
+
+    <section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[280px]">
+      <TextSplit
+        title="The JVA Recruitment Video: Concept and Execution"
+        content="This group project focused on creating a compelling commercial video for JVA, aimed at recruiting new talent and sparking interest in the correctional services field. Designed to function both as a recruitment tool and an image film, the video highlights the value and variety of work within the institution. It was produced for wide distribution—shown as a cinema pre-roll and as a targeted YouTube ad campaign."
+      />
+    </section>
+ 
+<section class="pt-[100px] md:pt-[180px]">
+        <Video
+        src="./videos/01_Hauptvideo-jva_english-sub.mp4"
+        poster="/images/video-poster.jpg"
+        controls
+        autoplay
+        loop
+        muted
+      />
+</section>
+
+    <section class="mx-9 xl:mx-[90px] pt-[60px] lg:pt-[180px] pb-[180px]">
+        <TextSplit
+        title="From Script to Screen: A Complete In-House Production"
+        content="What made this project special was the full creative process our small team of five took on—from scriptwriting and storyboarding to filming, editing, and post-production—all completed within just two weeks. We had the rare opportunity to tour the prison and even film on-site, giving the project an authentic and grounded feel. Collaborating with people whose mission is to offer hope and second chances deeply shaped our narrative approach. This message became the heart of the video: breaking stereotypes and highlighting the human side of correctional work."
+      />
+    </section>
+
+  <Projectnav projects={projects} />
+   <Footer />
+</Layout>

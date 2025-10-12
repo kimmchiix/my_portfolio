@@ -1,0 +1,69 @@
+---
+import "../style/global.css";
+import Navi from "../components/Navi.astro";
+import ArchiveHero from "../components/Archive-hero.astro";
+import Footer from "../components/Footer.astro";
+import BentoGallery from "../components/BentoGallery.astro";
+
+const galleryImages = [
+  '/images/archive/ig-posts.png',
+  '/images/archive/cafe-logo-sign.png',
+  '/images/archive/bag-logo-slogan.png',
+  '/images/archive/mug-mockup.png'
+
+  
+];
+const galleryImagesSecondary = [
+  '/images/archive/word-logo-petit.png',
+  '/images/archive/businesscard.png',
+  '/images/archive/Stationery-Mockup.png',
+    '/images/archive/takeout-mockup.png'
+];
+import FeatureList from '../components/Features.astro';
+const features = [
+
+  {
+    title: "Main Logo",
+    text: "For the Petit Café logo, I chose a handwritten font and a hand-drawn bunny character to create a playful yet approachable identity. The bunny, a delicate and charming animal, reflects the café’s Parisian style and complements its sweet, visually appealing pastries, emphasizing a close, personal connection with customers.",
+    image: "/images/archive/Logo-cafe--socialmedia-main.png",
+  },
+  {
+    title: "secondary Logo",
+    text: "The secondary logo brings the bunny to life, showing it in action as it prepares coffee. With more detail and a larger scale, the mascot becomes the star of the design, capturing the playful and charming spirit of the café. This version is perfect for showcasing the branding in larger applications or as a standout visual element that draws attention and invites customers into the café’s whimsical world.",
+    image: "/images/archive/bunny-logo-full.png",
+  },
+    {
+    title: "Design System",
+    text: " The design system combines a deep, rich red with soft pink and beige tones, creating a warm and modern palette that stands out from the often brown-heavy logos of competitors. A playful handwritten font adds a cute, approachable touch, while a gently rounded sans-serif ensures clarity and legibility across all media. Together, this combination balances charm with functionality, allowing the brand to feel soft, inviting, and consistently recognizable without the need for additional fonts.",
+    image: "/images/archive/cd-branding.png",
+    highlight: true,
+  },
+];
+import Layout from "../layouts/Layout.astro";
+---
+
+
+<Layout>
+    <Navi/>
+  <ArchiveHero 
+  subheadline="Archive"
+ headline="Café Corporate Design"
+ text="A Branding Project for a Local Café, Petit Café is a Cozy Spot in the Heart of the City, that doesnt just focus on Coffee but also functions as a an Instagram Hotspot, fusing Korean Coffee Culture with Parisian Flair. Featuring a Hand-Drawn Logo, Seasonal Menus, and a Cozy Picture esq. Atmosphere in the Heart of a German Fachwerkhaus Town.."
+
+
+ image="/images/archive/ig-posts5.png" />
+
+<section class="mx-9 xl:mx-[90px]  pt-[100px] md:pt-[280px]">
+    <FeatureList features={features} headline="Branding" />
+</section>
+
+ <section class="mx-9 xl:mx-[90px] pt-[100px]">
+    <BentoGallery images={galleryImages} />
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[18px] pb-[280px]">
+    <BentoGallery images={galleryImagesSecondary} />
+</section>
+
+
+    <Footer />
+</Layout>

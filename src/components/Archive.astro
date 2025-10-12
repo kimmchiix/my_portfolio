@@ -1,0 +1,46 @@
+---
+const { items = [] } = Astro.props;
+// items: [{ title: "Project 1", link: "#", image: "/images/project1.jpg" }, ...]
+---
+
+<section class="md:relative w-full p-10 left-50">
+  <ul class="space-y-6 text-2xl font-bold">
+    {items.map((item) => (
+      <li class="hover-item relative" data-image={item.image}>
+        <a href={item.link} class="hover:underline">{item.title}</a>
+      </li>
+    ))}
+  </ul>
+
+  <!-- Hover Teaser Image -->
+  <div 
+    id="hover-image" 
+    class="pointer-events-none fixed top-0 left-0 w-136 h-auto aspect-video bg-cover bg-center opacity-0 transition-opacity duration-300 rounded-lg shadow-lg "
+  ></div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const hoverImage = document.getElementById("hover-image");
+    const hoverItems = document.querySelectorAll(".hover-item");
+
+    hoverItems.forEach(item => {
+      item.addEventListener("mouseenter", () => {
+        const img = item.getAttribute("data-image");
+        hoverImage.style.backgroundImage = `url(${img})`;
+        hoverImage.classList.remove("opacity-0");
+        hoverImage.classList.add("opacity-100");
+      });
+
+      item.addEventListener("mouseleave", () => {
+        hoverImage.classList.remove("opacity-100");
+        hoverImage.classList.add("opacity-0");
+      });
+
+      item.addEventListener("mousemove", (e) => {
+        hoverImage.style.top = `${e.clientY - hoverImage?.offsetHeight + 15}px`;
+        hoverImage.style.left = `${e.clientX - hoverImage?.offsetWidth / 8}px`;
+      });
+    });
+  });
+</script>

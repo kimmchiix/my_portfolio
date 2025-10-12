@@ -1,0 +1,94 @@
+---
+import "swiper/css";
+import "swiper/css/effect-cards";
+import 'swiper/css/pagination';
+
+---
+
+<div id="fade" class="pl-22 py-14 h-full">
+    <h2 class="h2 text-left pb-8">Archive</h2>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper pb-3">
+            <div class="swiper-slide flex flex-col w-[630px]">
+                <a href="/archive-cd"> <img src="/images/archive/petit-cafe.png" /> </a>
+                <p class="uppercase archive-title">Café Corporate Identity</p>
+            </div>
+            <div class="swiper-slide flex flex-col">
+                <a href="/archive-exhibition"> <img src="/images/archive/Ctm.png" /> </a>
+                <p class="uppercase archive-title">Exhibition "Contain the Memories"</p>
+            </div>
+            <div class="swiper-slide flex flex-col">
+                <a href="/archive-typography"> <img src="/images/archive/book-cover.png" /> </a>
+                <p class="uppercase archive-title">Typography Book</p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<style>
+.swiper {
+  width: 100%;
+}
+
+.swiper-wrapper {
+  display: flex;
+}
+
+.swiper-slide {
+  text-align: center;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.archive-title {
+  margin-top: 10px;
+  font-size: 16px;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.swiper-slide:hover .archive-title {
+  opacity: 1;
+}
+
+.swiper-pagination {
+  bottom: 0px;
+  left: 5%;
+  transform: translateX(-50%);
+}
+.swiper-pagination-bullet-active {
+  background-color: #B10F37!important; /* red active bullet */
+}
+
+/* Mobile font resize */
+@media screen and (max-width: 768px) {
+  .archive-title {
+    font-size: 12px;
+    opacity: 1;
+  }
+}
+@media screen and (min-width: 1700px) {
+  .swiper-slide {
+    width: 800px;  /* increase width */
+  }
+
+  .swiper-slide img {
+    width: 680px;   /* fill the slide */
+    height: 680px;
+    object-fit: contain;
+  }
+}
+</style>
+<script src="./swiper.ts"></script>
+

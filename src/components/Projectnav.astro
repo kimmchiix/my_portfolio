@@ -1,0 +1,40 @@
+---
+interface Project {
+  name: string;
+  image: string;
+  href: string;
+}
+
+interface Props {
+  projects: ReadonlyArray<Project>; // ✅ accepts readonly OR mutable arrays
+}
+
+const { projects } = Astro.props;
+const [leftProject, rightProject] = projects;
+---
+
+<section class="grid grid-cols-1 md:grid-cols-2 h-[200px] w-full">
+  <!-- Left Project -->
+  <a href={leftProject.href} class="group relative block h-full w-full">
+    <img
+      src={leftProject.image}
+      alt={leftProject.name}
+      class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-101"
+    />
+    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+      <span class="projectnav-text text-white font-semibold">{leftProject.name}</span>
+    </div>
+  </a>
+
+  <!-- Right Project -->
+  <a href={rightProject.href} class="group relative block h-full w-full">
+    <img
+      src={rightProject.image}
+      alt={rightProject.name}
+      class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-101"
+    />
+    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+      <span class="projectnav-text text-white font-semibold">{rightProject.name}</span>
+    </div>
+  </a>
+</section>

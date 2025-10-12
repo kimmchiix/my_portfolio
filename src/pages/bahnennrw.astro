@@ -1,0 +1,101 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../style/global.css";
+import Navi from "../components/Navi.astro";
+import Footer from "../components/Footer.astro";
+import HeroVideo from "../components/Df_herovideo.astro";
+import Facts from "../components/Facts.astro"
+const facts = [
+  { title: 'Project', subtitle: 'Website Redesign' },
+  { title: 'Time', subtitle: '1 Months' },
+  { title: 'Technologies', subtitle: 'Figma' }
+];
+
+import BentoGallery from '../components/BentoGallery.astro';
+
+const galleryImages = [
+  '/images/thumbnail-mockup.png',
+  '/images/graphs-mockup.png',
+  '/images/dfi-typo.png',
+  '/images/phone-mockup.png'
+];
+import TextSplit from '../components/TextSplit.astro';
+import FeatureList from '../components/Features.astro';
+
+const features = [
+  {
+    title: "Bold Typography",
+    text: "Bold typography was chosen to convey emotional clarity and confidence, which is especially important when dealing with complex feelings. Large, strong typefaces create immediate visual impact, making key messages feel assertive and unambiguous. This directness helps users—particularly young people who may feel overwhelmed—to focus on what matters emotionally. The typography also acts as a visual anchor throughout the site, grounding the user in each section’s theme. By combining expressive fonts with thoughtful layout, the text becomes not just readable, but felt.",
+    image: "/images/typo-mockup.png",
+    highlight: true,
+  },
+  {
+    title: "Scrolling Effects",
+    text: "Scroll-based interactions introduce a sense of narrative pacing, encouraging users to move through the content at a reflective, personal rhythm. These effects create a subtle dynamic between control and flow—mirroring how emotions are often experienced. Parallax and fade-ins allow new layers of meaning to emerge as the user progresses, keeping the experience engaging without overwhelming. For younger users accustomed to fast-scrolling environments, this intentional slowdown helps foster mindfulness and emotional awareness. Scroll effects turn passive browsing into an emotional journey.",
+    image: "https://placehold.co/600x600",
+  },
+  {
+    title: "Visual Graphics",
+    text: "The visual graphics are designed to act as emotional cues—abstract shapes, textures, and color gradients help communicate moods and internal states that might be hard to put into words. This is particularly helpful for teens and young adults, who are often still learning how to identify and articulate their feelings. The graphics don’t just decorate the site; they contextualize the text, offering emotional context at a glance. Soft animations and symbolic imagery create an inviting, empathetic tone. These visuals help bridge the gap between digital experience and emotional understanding.",
+    image: "/images/graphics-mocckup.png",
+  },
+];
+
+import BentoThree from "../components/BentoThree.astro";
+const bentoImages = [
+  '/images/phone-mockup-high.png',
+  '/images/mockup-long.png',
+  '/images/phone-mockup.png',
+  '/images/phone-mockup-square.png',
+];
+
+import FullWidthVideo from '../components/Video.astro';
+import Projectnav from '../components/Projectnav.astro';
+
+const projects = [
+  {
+    name: "JVA Project",
+    image: "/images/jva-thumbnail.png",
+    href: "/jvavideo",
+  },
+  {
+    name: "Markt1 Website",
+    image: "https://placehold.co/600x600",
+    href: "/project-two",
+  },
+];
+
+---
+<Layout>
+    <Navi />
+    <HeroVideo 
+  videoSrc="/videos/dgi-hero--videomp4.mp4"
+  headline="Driving Change: A Redesigned Experience for Career Seekers in Public Transport"
+/>
+<section class="mx-9 xl:mx-[90px] pt-[100px]">
+    <Facts facts={facts} />
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[60px] lg:pt-[180px]"> 
+    <BentoGallery images={galleryImages} />
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[280px]">
+    <TextSplit
+        title="Exploring Emotional Depth Through Digital Design"
+        content="Digital Feelings is a website that explores the depth and complexity of human emotions in today’s digital world. It aims to make emotional experiences more understandable—especially for teenagers and young adults—by showing how design, marketing, and branding often shape or trigger our feelings. Through bold visuals and interactive elements, the project highlights how emotions are not only personal but also digitally influenced."/>
+</section> 
+<section class="mx-9 xl:mx-[90px]  pt-[100px] md:pt-[280px]">
+    <FeatureList features={features} headline="Key Features" />
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[280px]">
+<BentoThree images={bentoImages} />
+</section>
+
+
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[280px]  pb-[100px]">
+    <TextSplit
+        title="A Retrospective on Design and Strategy"
+        content="Looking back, this project was a great opportunity to explore how brand strategies and design choices can deeply influence a user's emotions. It was exciting to merge scientific insights and emotional storytelling into a visual experience—without relying on images. Experimenting with bold typography and layout taught me how powerful type alone can be in shaping tone and engagement."/>
+</section> 
+<Projectnav projects={projects} />
+    <Footer />
+</Layout>

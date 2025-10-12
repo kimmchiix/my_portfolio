@@ -1,0 +1,120 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../style/global.css";
+import Navi from "../components/Navi.astro";
+import Footer from "../components/Footer.astro";
+import HeroVideo from "../components/Df_herovideo.astro";
+import FullImage from "../components/FullImage.astro";
+import myImage from "../../public/images/bau-mockup-main.png";
+import myImageTwo from "../../public/images/bau-mockup-slider.png";
+import myImageThree from "../../public/images/dfi-pc-screen.png";
+
+import Facts from "../components/Facts.astro"
+const facts = [
+  { title: 'Project', subtitle: 'Website redesign' },
+  { title: 'Time', subtitle: '2 Months' },
+  { title: 'Technologies', subtitle: 'Figma' }
+];
+
+import OffsetImage from "../components/OffsetImage.astro";
+import leftPic from "../../public/images/bau-mockup-left.png";
+import rightPic from "../../public/images/bau-mockup-right.png";
+
+import BentoGallery from '../components/BentoGallery.astro';
+
+const galleryImages = [
+  '/images/bau-mockup-main.png',
+  '/images/bau-mockup-slider.png',
+  '/images/bau-mockup-square.png',
+  '/images/bau-phone-tall.png'
+];
+import TextSplit from '../components/TextSplit.astro';
+import FeatureList from '../components/Features.astro';
+
+
+
+import BentoThree from "../components/BentoThree.astro";
+const bentoImages = [
+  '/images/bau-phone-tall-two.png',
+  '/images/bau-phone-wide.png',
+  '/images/bau-phone-square.png',
+  '/images/bau-phone-square.png',
+];
+
+import Video from '../components/Video.astro';
+import Projectnav from '../components/Projectnav.astro';
+
+const projects = [
+  {
+    name: "Planora - Travel App",
+    image: "/public/images/planLogo.png",
+    href: "/planora",
+
+  },
+  {
+    name: "Digital Feelings Initiative",
+    image: "/public/images/dfi-thumbnail.png",
+    href: "/digitalfeelings",
+
+  },
+];
+
+---
+<Layout>
+    <Navi />
+    <HeroVideo 
+  videoSrc="/videos/bau-hero.mp4"
+  headline="Designing the Digital Voice for a Future-Proof Construction Industry"
+/>
+<section class="mx-9 xl:mx-[90px] pt-[100px]">
+    <Facts facts={facts} />
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[180px pb-[60px] lg:pb-[180px]">
+   <FullImage src={myImage.src} alt="Example project image" />
+</section>
+<section>
+    <OffsetImage 
+  leftSrc={leftPic.src} 
+  rightSrc={rightPic.src} 
+  leftAlt="Left Image" 
+  rightAlt="Right Image" 
+/>
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[60px] lg:pt-[180px]"> 
+    <BentoGallery images={galleryImages} />
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[280px]">
+    <TextSplit
+        title="Redesigning the Digital Voice of Construction"
+        content="This project marked my first major solo design challenge at the company — a complete website redesign for the German Construction Industry Association. The goal was to create a modern, user-friendly platform that reflects the industry's innovation and commitment to sustainability as well as to create a modern, reusable design across all subsidiary companies without loosing the original Corporate Identity. This project set a strong foundation for my future work in digital design."/>
+        
+</section> 
+<section class="pt-[100px] md:pt-[180px]  pb-[100px]">
+
+            <Video
+        src="./videos/bau-desktop-video.mp4"
+        poster="/images/video-poster.jpg"
+        autoplay
+        loop
+        muted
+      />
+
+</section>
+
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[280px]">
+<BentoThree images={bentoImages} />
+</section>
+
+
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[280px]  pb-[100px]">
+    <TextSplit
+        title="Crafting a Website That Unites Without Losing Identity"
+        content="Looking back, this project was a pivotal moment in my career. It taught me the importance of balancing user needs with brand identity, and how thoughtful design can elevate an entire industry’s digital presence."/>
+        <div class="flex flex-col justify-end items-end pt-4">
+            <a href="https://www.bauindustrie-nrw.de" class="text-[#B10F37] hover:underline justify-end">View full Website here</a>
+             <a href="https://www.bwi-bau.de" class="text-[#B10F37] hover:underline justify-end">View full Website here</a>
+        </div>
+</section> 
+<Projectnav projects={projects} />
+    <Footer />
+</Layout>

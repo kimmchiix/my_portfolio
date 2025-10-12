@@ -1,0 +1,79 @@
+---
+import heroImage from '../images/me-cover.png';
+---
+
+<style>
+  .fade-in-text {
+    opacity: 0;
+    transition: opacity 0.8s ease-out;
+  }
+  .fade-in-text.visible {
+    opacity: 1;
+  }
+  header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #212121; 
+  }
+  @media (max-width: 768px) {
+    header {
+      background-size: cover !important;
+      background-position: center center!important;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #212121;
+    }
+  }
+  @media (min-width: 769px) {
+    header {
+      background-size: cover !important;
+      background-position: center center !important;
+    }
+  }
+</style>
+
+<header
+  class="relative w-full h-full bg-no-repeat bg-center md:bg-top bg-cover md:bg-cover text-[#212121]"
+  style={`background-image: url(${heroImage.src});` }
+>
+  <!-- Light overlay -->
+  <div class="absolute inset-0 bg-white/40 z-0"></div>
+
+  <!-- Content -->
+  <div id="headline" class="fade-in-text absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4">
+    <!-- Name + SVG -->
+    <div class="flex flex-row md:items-center md:justify-center gap-4">
+      <h1 class="text-4xl md:text-6xl font-bold">Kim Loreen</h1>
+      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 100 116" fill="none">
+        <path d="M20.4782 65.9701C7.97803 58.9701 -7.02173 36.9701 6.05358 17.1197C14.1756 4.78922 18.1449 39.6368 20.4782 65.9701C20.8115 40.1368 56.8573 -9.88242 74.0533 3.11959C94.5533 18.6197 44.1449 51.1368 20.4782 65.9701C42.9782 65.4701 107.553 94.6196 97.5533 110.62C89.119 124.115 27.4782 103.97 20.4782 65.9701C20.4782 90.9701 40.5766 121.738 22.0535 110.62C3.47827 99.4701 15.9781 69.9701 20.4782 65.9701Z" fill="#B10F37"/>
+        <path d="M20.4782 65.9701C7.97803 58.9701 -7.02173 36.9701 6.05358 17.1197C14.1756 4.78922 18.1449 39.6368 20.4782 65.9701ZM20.4782 65.9701C15.9781 69.9701 3.47827 99.4701 22.0535 110.62C40.5766 121.738 20.4782 90.9701 20.4782 65.9701ZM20.4782 65.9701C20.8115 40.1368 56.8573 -9.88242 74.0533 3.11959C94.5533 18.6197 44.1449 51.1368 20.4782 65.9701ZM20.4782 65.9701C27.4782 103.97 89.119 124.115 97.5533 110.62C107.553 94.6196 42.9782 65.4701 20.4782 65.9701Z" stroke="#B10F37" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <!-- Subheadline -->
+    <div class="pr-8 absolute bottom-42 left-12 transform  md:bottom-32 md:left-32 md:translate-x-0 lg:left-24  lg:bottom-18 max-w-md text-left z-20">
+      <span class="block span-headline text-sm uppercase mb-2 text-[#212121]">Currently based in Germany</span>
+      <p class="text-base md:text-lg text-[#212121]">
+        I’m a full-time creative with a passion for <strong>design</strong> and a background in<strong> multimedia production. Focused on Webdesign,</strong> I strive to create engaging experiences that resonate with audiences.
+      </p>
+    </div>
+  </div>
+</header>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      const headline = document.getElementById('headline');
+      headline?.classList.add('visible');
+    }, 1000); // delay in ms (2000ms = 2s)
+  });
+</script>
+

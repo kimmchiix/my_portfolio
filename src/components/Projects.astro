@@ -1,0 +1,99 @@
+---
+import dfiLogo from './public/images/thumbnail-mockup.png';
+import jvaImages from './public/images/jva-thumbnail.png';
+import hhLogo from './public/images/hh-thumbnail.png';
+import markt1Logo from './public/images/markt-thumbnail.jpg';
+import bauLogo from './public/images/bau-mockup-main.png';
+import nuLogo from './public/images/nu-landing-mockup.png';
+import planLogo from './public/images/planLogo.png';
+---
+
+<div class="relative">
+  <div class="absolute -top-40 left-0 w-full h-40 bg-gradient-to-t from-[#F9F5F3] to-transparent z-0 pointer-events-none"></div>
+  <div class="mx-9 xl:mx-[90px]">
+    <h2 class="h2 pb-[24px] pt-[60px]">Projects</h2>
+
+    <!-- Row 1 -->
+    <div class="flex flex-col w-auto min-lg:flex-row justify-between gap-8">
+      <div class="flex flex-col gap-4 fade-up">
+        <a href="/planora">
+          <img src={planLogo.src} alt="Planora - Travel App" 
+            class="md:max-w-full lg:max-w-[400px] xl:max-w-[480px] 2xl:max-w-[631px] aspect-video object-cover transition-transform duration-300 hover:scale-102" />
+        </a>
+        <p class="uppercase">Planora - Travel app</p>
+      </div>
+
+      <div class="flex flex-col gap-4 fade-up">
+        <a href="/jvavideo">
+          <img src={jvaImages.src} alt="JVA Video" 
+            class="md:max-w-full lg:max-w-[500px] xl:max-w-[640px] 2xl:max-w-[763px] aspect-video object-cover transition-transform duration-300 hover:scale-102" />
+        </a>
+        <p class="uppercase">JVA Recruiting Video</p>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="flex flex-col min-lg:flex-row-reverse justify-between gap-8 pt-4 md:pt-[100px]">
+      <div class="flex flex-col gap-4 fade-up">
+        <a href="/markt1">
+          <img src={markt1Logo.src} alt="Markt1 Website" 
+            class="md:max-w-full lg:max-w-[400px] xl:max-w-[480px] 2xl:max-w-[631px] aspect-video object-cover transition-transform duration-300 hover:scale-102" />
+        </a>
+        <p class="uppercase">Markt1 Website</p>
+      </div>
+
+      <div class="flex flex-col gap-4 fade-up">
+        <a href="/nuskincare">
+          <img src={nuLogo.src} alt="nu+ Skincare" 
+            class="md:max-w-full lg:max-w-[500px] xl:max-w-[640px] 2xl:max-w-[763px] aspect-video object-cover transition-transform duration-300 hover:scale-102" />
+        </a>
+        <p class="uppercase">nu+ Skincare</p>
+      </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="flex flex-col w-auto min-lg:flex-row justify-between gap-8 pt-4 md:pt-[100px]">
+      <div class="flex flex-col gap-4 fade-up">
+        <a href="/digitalfeelings">
+          <img src={dfiLogo.src} alt="Digital Feelings Initiative Website Mockup Desktop" 
+            class="md:max-w-full lg:max-w-[400px] xl:max-w-[480px] 2xl:max-w-[631px] aspect-video object-cover transition-transform duration-300 hover:scale-102" />
+        </a>
+        <p class="uppercase">Digital Feelings Website</p>
+      </div>
+
+      <div class="flex flex-col gap-4 fade-up">
+        <a href="/bauindustrie">
+          <img src={bauLogo.src} alt="Bauindustrie Website" 
+            class="md:max-w-full lg:max-w-[500px] xl:max-w-[640px] 2xl:max-w-[763px] aspect-video object-cover transition-transform duration-300 hover:scale-102" />
+        </a>
+        <p class="uppercase">Bauindustrie Website</p>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target); // animate once
+        }
+      });
+    },
+    { threshold: 0.2 } // trigger when 20% visible
+  );
+
+  document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
+</script>

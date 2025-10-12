@@ -1,0 +1,113 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../style/global.css";
+import Navi from "../components/Navi.astro";
+import Footer from "../components/Footer.astro";
+import HeroVideo from "../components/Df_herovideo.astro";
+import FullImage from "../components/FullImage.astro";
+import myImage from "../../public/images/markt-landing-mockup.png";
+import OffsetImage from "../components/OffsetImage.astro";
+import leftPic from "../../public/images/markt-mockup-left.png";
+import rightPic from "../../public/images/markt-mockup-right.png";
+import Facts from "../components/Facts.astro"
+const facts = [
+  { title: 'Project', subtitle: 'Website Redesign and Programming' },
+  { title: 'Time', subtitle: '2 Months' },
+  { title: 'Technologies', subtitle: 'Figma, Payload, Typescript, Tailwind' }
+];
+
+import BentoGallery from '../components/BentoGallery.astro';
+
+const galleryImages = [
+  '/images/markt-landing-mockup.png',
+  '/images/markt-mockup-three.png',
+  '/images/markt-mockup-slider.png',
+  '/images/markt-start-tall.png'
+];
+import TextSplit from '../components/TextSplit.astro';
+import FeatureList from '../components/Features.astro';
+
+const features = [
+  {
+    title: "Hover Effects",
+    text: "To keep the focus on the visual work, project titles are subtly hidden by default and only expand on hover. This interaction not only avoids distracting from the imagery but also creates a more engaging and satisfying user experience—encouraging exploration while maintaining a clean, uncluttered layout.",
+    image: "/images/markt-mockup-feature-one.png",
+    highlight: true,
+  },
+  {
+    title: "Sticky Facts",
+    text: "The Sticky Facts section presents key project highlights using bold numbers that catch the eye and stay visible as you scroll. These facts offer viewers quick, impactful insights—like timelines, team size, or reach—while visually breaking up the content and reinforcing the project's value at a glance.",
+    image: "/images/markt-mockup-facts.png",
+  },
+
+];
+
+
+import BentoThree from "../components/BentoThree.astro";
+const bentoImages = [
+  '/images/markt-phone-tall.png',
+  '/images/markt-phone-wide.png',
+  '/images/markt-phone-square.png',
+  '/images/markt-phone-square.png',
+];
+import FullWidthVideo from '../components/Video.astro';
+import Projectnav from '../components/Projectnav.astro';
+
+const projects = [
+  {
+    name: "Nu+ Skincare",
+    image: "/public/images/nu-thumbnail.png",
+    href: "/nuskincare",
+  },
+  {
+    name: "Bauindustrie Website Relaunch",
+    image: "/public/images/bau-thumbnail.png",
+    href: "/bauindustrie",
+  },
+];
+
+---
+<Layout>
+    <Navi />
+    <HeroVideo 
+  videoSrc="/videos/Markt1-hero-video.mp4"
+  headline="Markt1 Website Redesign: Elevating Editorial Design Online"
+/>
+<section class=" mx-9 xl:mx-[90px] pt-[100px] ">
+    <Facts facts={facts} />
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[180px pb-[60px] lg:pb-[180px]">
+   <FullImage src={myImage.src} alt="Example project image" />
+</section>
+<section>
+    <OffsetImage 
+  leftSrc={leftPic.src} 
+  rightSrc={rightPic.src} 
+  leftAlt="Left Image" 
+  rightAlt="Right Image" 
+/>
+</section>
+
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[280px]">
+    <TextSplit
+        title="Modernizing Markt1’s Online Presence to Match Their Print Legacy"
+        content="Markt1’s original website felt outdated and lacked visual appeal, falling short of representing their editorial expertise. With creative freedom, I redesigned their site to better reflect the brand’s identity — clean, minimal, and content-focused. The new layout features strong, clear headlines and a thoughtfully structured portfolio section that lets their work speak for itself."/>
+</section> 
+<section class="mx-9 xl:mx-[90px]  pt-[100px] md:pt-[280px]">
+    <FeatureList features={features} headline="Key Features" />
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[280px]">
+<BentoThree images={bentoImages} />
+</section>
+
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[280px]  pb-[100px]">
+    <TextSplit
+        title="Reflecting on My First Full-Scope Web Project"
+        content="This project was both challenging and rewarding—from the initial client meetings and design planning to technical implementation and launch. It was my first time overseeing an entire website on my own, including developing it fully in TypeScript and integrating Payload CMS. I learned a lot throughout the process—about communication, structure, and clean code. Seeing the site go live felt like a big milestone and left me feeling proud of this first end-to-end launch."/>
+        <div class="flex justify-end items-end pt-4">
+            <a href="https://www.markt1-verlag.de" class="text-[#B10F37] hover:underline justify-end">View full Website here</a>
+        </div>
+    </section> 
+<Projectnav projects={projects} />
+    <Footer />
+</Layout>

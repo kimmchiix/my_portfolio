@@ -1,0 +1,29 @@
+---
+interface Fact {
+  title: string;
+  subtitle: string;
+}
+
+interface Props {
+  facts: Fact[];
+}
+
+const { facts }: Props = Astro.props;
+---
+
+<section class="fade-up">
+  <div
+    class="flex flex-wrap min-lg:flex-row justify-start md:justify-center gap-[50px] md:gap-[130px] lg:gap-[200px] align-center"
+  >
+    {
+      facts.map((fact) => (
+        <div class="flex flex-col gap-4" data-key={fact.title}>
+          <p class="Fact-title">
+            <strong>{fact.title}</strong>
+          </p>
+          <p class="fact-subtitle">{fact.subtitle}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>

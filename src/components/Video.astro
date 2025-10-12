@@ -1,0 +1,34 @@
+---
+interface Props {
+  src: string;
+  alt?: string;
+  poster?: string;
+  autoplay?: boolean;
+  loop?: boolean;
+  muted?: boolean;
+  controls?: boolean;
+}
+
+const {
+  src,
+  alt = "Video",
+  poster,
+  autoplay = false,
+  loop = false,
+  muted = false,
+  controls = false,
+} = Astro.props;
+---
+
+<div class="fade-up w-screen overflow-hidden ">
+  <video
+    class="w-full h-auto block"
+    src={src}
+    poster={poster}
+    autoplay={autoplay ? true : undefined}
+    loop={loop ? true : undefined}
+    muted={muted ? true : undefined}
+    controls={controls ? true : undefined}
+    playsinline
+  ></video>
+</div>

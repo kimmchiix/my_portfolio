@@ -1,0 +1,43 @@
+---
+import "../style/global.css";
+import Navi from "../components/Navi.astro";
+import ArchiveHero from "../components/Archive-hero.astro";
+import Footer from "../components/Footer.astro";
+import BentoGallery from "../components/BentoGallery.astro";
+
+const galleryImages = [
+  '/images/archive/book-mockup-one.png',
+  '/images/archive/book-mockup-two.png',
+  '/images/archive/book-mockup-four.png',
+  '/images/archive/book-mockup-long.png'
+
+  
+];
+const galleryImagesSecondary = [
+  '/images/archive/book-mockup-five.png',
+  '/images/archive/book-mockup-three.png',
+  '/images/archive/book-mockup-wide-one.png',
+    '/images/archive/book-mockup-back-long.png'
+
+  
+];
+import Layout from "../layouts/Layout.astro";
+---
+<Layout>
+    <Navi/>
+  <ArchiveHero 
+  subheadline="Archive"
+ headline="Anatomy of a Typeface: Typography Book"
+ text="This book takes a closer look at the typeface Outfit, exploring its design through the lens of typographic anatomy. From stroke weight to counters and curves, it examines how form shapes readability, personality, and expression — turning a font into more than just letters on a page."
+ image="/images/archive/book-cover.png" />
+
+ <section class="mx-9 xl:mx-[90px] pt-[100px]">
+    <BentoGallery images={galleryImages} />
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[18px] pb-[280px]">
+    <BentoGallery images={galleryImagesSecondary} />
+</section>
+
+
+    <Footer />
+</Layout>

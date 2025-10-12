@@ -1,0 +1,14 @@
+---
+const { src, alt = "", className = "" } = Astro.props;
+---
+
+<div
+  class={`fade-up flex justify-center items-center h-[40vh] md:h-[70vh] my-[36px] md:my-[90px] fade-up ${className}`}
+>
+  <img
+    src={src}
+    alt={alt}
+    loading="lazy"
+    class="w-full max-h-full object-contain"
+  />
+</div>

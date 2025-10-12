@@ -1,0 +1,26 @@
+---
+import InteractiveList from "../components/InteractiveList.astro";
+const projects = [
+    { title: "Planora - Travel App", link: "/planora", image: "/public/images/planLogo.png" },
+  { title: "JVA Recruiting Film", link: "/jvavideo", image: "/public/images/jva-thumbnail.png" },
+  { title: "Markt1 Website Relaunch", link: "/markt1", image: "/public/images/markt-landing.png" },
+  { title: "Digital Feelings Initiative", link: "/digitalfeelings", image: "/public/images/dfi-thumbnail.png" },
+  { title: "nu+ Skincare", link: "/nuskincare", image: "/public/images/nu-thumbnail.png" },
+  { title: "Bauindustrie Relaunch", link: "/bauindustrie", image: "/public/images/bau-thumbnail.png" },
+];
+import Layout from "../layouts/Layout.astro";
+import "../style/global.css";
+import Navi from "../components/Navi.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout>
+    <Navi />
+    <section class="bg-[#B10F37]">
+        <InteractiveList
+        items={projects} 
+        />
+    </section>
+    <Footer />
+
+</Layout>

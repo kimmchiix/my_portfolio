@@ -1,0 +1,47 @@
+---
+const { src, alt, headline, paragraph } = Astro.props;
+---
+
+<section class="fade-up mx-9 xl:mx-[90px] min-h-[70vh] flex flex-col items-start justify-center">
+  <!-- Text block -->
+  <div class="max-w-3xl text-start mb-8">
+    <h3 class="text-2xl md:text-4xl font-bold mb-4">{headline}</h3>
+    <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+      {paragraph}
+    </p>
+  </div>
+
+  <!-- Image -->
+  <div class="w-full fade-in-on-scroll">
+    <img 
+      src={src} 
+      alt={alt} 
+      class="w-full h-auto object-cover aspect-auto"
+      loading="lazy"
+    />
+  </div>
+</section>
+
+<style>
+  .fade-in-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .fade-in-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll(".fade-in-on-scroll").forEach((el) => observer.observe(el));
+</script>

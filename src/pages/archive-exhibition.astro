@@ -1,0 +1,73 @@
+---
+import "../style/global.css";
+import Navi from "../components/Navi.astro";
+import ArchiveHero from "../components/Archive-hero.astro";
+import TextSplit from "../components/TextSplit.astro";
+import Footer from "../components/Footer.astro";
+import BentoGallery from "../components/BentoGallery.astro";
+import FeatureList from '../components/Features.astro';
+
+const features = [
+  {
+    title: "Logo Design",
+    text: "The logo design for the exhibition is a powerful symbol of remembrance, featuring the memorial stone from Sant’Anna di Stazzema. This stone, which bears the names of the victims, serves as a poignant reminder of the lives lost during the massacre, basically a container for memorial. The logo’s design creates a visual connection to the site of the tragedy. By using this imagery, the logo not only honors the victims but also offers a link to the overall Concept of the Exhibition as well as the possibility to expand the whole concept to other historic exhibitions in the future.",
+    image: "/images/archive/ctm-logo.png",
+    highlight: true,
+  },
+  {
+    title: "Branding Elements",
+    text: "The branding elements for the exhibition include a cohesive color palette and typography that reflect the solemnity and significance of the subject matter. The design choices are made to evoke a sense of respect and contemplation, ensuring that the visual identity aligns with the exhibition’s mission to educate and remember. These elements are applied consistently across various materials, including posters, brochures, and digital platforms, creating a unified look that enhances the overall impact of the exhibition.",
+    image: "/images/archive/ctm-branding.png",
+  },
+  {
+    title: "Container Layout",
+    text: "The container layout of the exhibition is designed to be portable and adaptable, allowing it to travel to various schools and communities. Its modular design allows for easy setup and dismantling, it allows for large scale Posters with over 2m in width, guiding the visitor, while telling the story of Sankt Anna in a fully immersive enviorment from the beginning to the end and giving important historical insight.",
+    image: "/images/archive/container-layout.png",
+  },
+];
+const galleryImages = [
+  '/images/archive/poster-main-wide.png',
+  '/images/archive/ctm-poster-square.png',
+  '/images/archive/poster-two-square.png',
+  '/images/archive/poster-long.png'
+
+  
+];
+const galleryImagesSecondary = [
+  '/images/archive/poster-two-wide.png',
+  '/images/archive/ctm-timeline-square.png',
+  '/images/archive/ctm-mockup-square.png',
+    '/images/archive/ctm-mockup-long.png',
+
+
+  
+];
+import Layout from "../layouts/Layout.astro";
+---
+<Layout>
+    <Navi/>
+  <ArchiveHero 
+  subheadline="Archive"
+ headline="Contain the Memories - Exhibition"
+ text="This traveling container exhibition sheds light on the massacre that struck a small Italian mountain town during World War II, where innocent civilians became the primary victims. Designed to visit schools and communities, it carries memory and awareness beyond museum walls, reminding us of the human cost of war."
+ image="/images/archive/Ctm.png" />
+
+ <section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[280px]  pb-[100px]">
+    <TextSplit
+        title="Remembering Sant’Anna: Voices from the Mountains"
+        content="In August 1944, the quiet mountain village of Sant’Anna di Stazzema in Italy became the site of a brutal massacre, where hundreds of civilians — many of them women and children — lost their lives. This traveling container exhibition carries their memory beyond the hills of Tuscany, bringing their story into schools and communities. Through testimony, history, and reflection, it invites us to confront the past and recognize the importance of protecting peace and humanity today."/>
+</section> 
+<section class="mx-9 xl:mx-[90px]  pt-[100px] md:pt-[280px]">
+    <FeatureList features={features} headline="Branding Contain the Memories " />
+</section>
+
+ <section class="mx-9 xl:mx-[90px] pt-[100px]">
+    <BentoGallery images={galleryImages} />
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[18px] pb-[280px]">
+    <BentoGallery images={galleryImagesSecondary} />
+</section>
+
+
+    <Footer />
+</Layout>

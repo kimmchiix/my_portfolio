@@ -1,0 +1,142 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../style/global.css";
+import Navi from "../components/Navi.astro";
+import Footer from "../components/Footer.astro";
+import HeroVideo from "../components/Df_herovideo.astro";
+import Facts from "../components/Facts.astro"
+import FullImage from "../components/FullImage.astro";
+import myImage from "../../public/images/planora-phone-screens-two.png";
+import myImageTwo from "../../public/images/planora-phone-screens-three.png";
+import myImageThree from "../../public/images/planora-branding.png";
+
+
+const facts = [
+  { title: 'Project', subtitle: 'App Design' },
+  { title: 'Time', subtitle: '3 Weeks' },
+  { title: 'Technologies', subtitle: 'Figma, Premier Pro' }
+];
+
+import BentoGallery from '../components/BentoGallery.astro';
+
+const galleryImages = [
+  '/images/thumbnail-mockup.png',
+  '/images/dfi-square-two.png',
+  '/images/dfi-square-one.png',
+  '/images/dfi-tall.png'
+];
+import TextSplit from '../components/TextSplit.astro';
+import FeatureList from '../components/Features.astro';
+
+const features = [
+  {
+    title: "AI optimized Itinerary",
+    text: " Planora's standout feature is its AI-powered itinerary generator. By simply inputting travel dates, interests, and budget, users receive a personalized day-by-day plan complete with activity suggestions, dining options, and local insights. This intelligent tool saves time and effort, making trip planning seamless and tailored to individual preferences.",
+    image: "../public//images/planora-features-one.png",
+    highlight: true,
+  },
+
+  {
+    title: "Planning, Sharing, Winning",
+    text: "Plan, share, and explore together all in one place. With a shared trip dashboard, everyone stays on the same page, from itineraries to real-time updates. Collect badges along the way and make every journey a little more rewarding.",
+    image: "../public/images/planora-features-two.png",
+  },
+    {
+    title: "All-in-One Travel Hub",
+    text: "Planora consolidates all travel needs into one app. From booking Tickets for all your Activities to notifying the User straight away if something comes in the way of their Plan. THe integrated AI will replan the day automatically. Users can handle every aspect of their trip without juggling multiple apps. This comprehensive approach enhances convenience and organization, ensuring a smoother travel experience.",
+    image: "../public/images/planora-features-three.png",
+  },
+];
+
+
+
+import Video from "../components/Video.astro";
+import Projectnav from '../components/Projectnav.astro';
+
+const projects = [
+  {
+    name: "JVA Project",
+    image: "/images/jva-thumbnail.png",
+    href: "/jvavideo",
+  },
+  {
+    name: "Markt1 Website",
+    image: "/images/markt-landing.png",
+    href: "/markt1",
+
+  },
+];
+import OffsetImage from "../components/OffsetImage.astro";
+import leftPic from "../../public/images/planora-screen-left.png";
+import rightPic from "../../public/images/planora-screen-right.png";
+import TextImage from "../components/TextImage.astro";
+import TextImagePic from "../../public/images/bau-phone-wide.png";
+import TextImagePicTwo from "../../public/images/dfi-square-one.png";
+---
+<Layout>
+    <Navi />
+    <HeroVideo 
+  videoSrc="/videos/planora-hero.mp4"
+  headline="Planora: Reimagining Travel Planning for the Modern Explorer"
+/>
+<section class="mx-9 xl:mx-[90px] pt-[100px]">
+    <Facts facts={facts} />
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[180px pb-[60px] lg:pb-[180px]">
+   <FullImage src={myImage.src} alt="Example project image" />
+</section>
+<section>
+    <OffsetImage 
+  leftSrc={leftPic.src} 
+  rightSrc={rightPic.src} 
+  leftAlt="Left Image" 
+  rightAlt="Right Image" 
+/>
+</section>
+
+<section class="mx-9 xl:mx-[90px] ">
+    <FeatureList features={features} headline="Key Features" />
+</section>
+
+<section class="pt-[100px] md:pt-[180px]  pb-[100px]">
+
+            <Video
+        src="./videos/planora-video-one.mp4"
+        poster="/images/video-poster.jpg"
+        autoplay
+        loop
+        muted
+      />
+
+</section>
+
+
+<section class="">
+   
+   <FullImage src={myImageTwo.src} alt="Example project image" />
+</section>
+<section class=" ">
+
+   <FullImage src={myImageThree.src} alt="Example project image" />
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[180px]">
+    <TextSplit
+        title="Planora: Redefining Travel Planning Through Smart Design"
+        content="This group project centered on the creation of Planora, a UI/UX-driven travel app designed to simplify and enhance the way users plan their trips. Combining innovation with traditional planning methods, Planora brings together essential features such as scheduling, navigation, and real-time adjustments—all unified within a single platform. Powered by Nora, the app’s personalized AI assistant, Planora adapts dynamically to unexpected changes, ensuring that travel planning becomes effortless, intuitive, and even enjoyable again."/>
+</section> 
+<section class="pt-[100px] md:pt-[180px]  pb-[100px]">
+
+            <Video
+        src="./videos/planora-ad-final.mp4"
+        poster="/images/video-poster.jpg"
+        autoplay
+        loop
+        muted
+        controls
+      />
+
+</section>
+<Projectnav projects={projects} />
+    <Footer />
+</Layout>
+

@@ -1,0 +1,53 @@
+---
+const { 
+  videoSrc = "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4", 
+  headline = "Welcome to My Portfolio" 
+} = Astro.props;
+---
+
+<section class="relative w-full h-screen overflow-hidden" id="hero-video">
+  <!-- Background Video -->
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300"
+    id="bg-video">
+    <source src={videoSrc} type="video/mp4" />
+  </video>
+
+  <!-- Overlay -->
+  <div class="absolute top-0 left-0 w-full h-full bg-black/60"></div>
+
+  <!-- Headline -->
+  <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+    <h1></h1>
+    <h2
+      class="subhero-headine text-[#F9F5F3] md:text-6xl font-bold opacity-0 transition-opacity duration-700"
+      id="headline">
+      {headline}
+    </h2>
+  </div>
+</section>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const headline = document.getElementById("headline");
+    const video = document.getElementById("bg-video");
+
+    // Delay fade-in of headline
+    setTimeout(() => {
+      headline?.classList.add("opacity-100");
+    }, 800); // 2 seconds delay
+
+    // Keep scroll effect only for fading the video out
+    if (video) {  
+      window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      const maxFade = 1000; // Adjust for how quickly it fades
+      const opacity = Math.max(1 - scrollY / maxFade, 0);
+      video.style.opacity = opacity.toString();
+    });}
+  });
+</script>

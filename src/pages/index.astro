@@ -1,0 +1,74 @@
+---
+
+import Header from "../components/Header.astro";
+import HeaderfullImg from "../components/HeroFullImg.astro";
+import Navi from "../components/Navi.astro";
+import Projects from "../components/Projects.astro";
+import About from "../components/About.astro";
+import HoverTeaserList from "../components/Archive.astro";
+import Hero from "../components/StartHero.astro";
+
+const projects = [
+	{
+		title: "Project Alpha",
+		link: "/projects/alpha",
+		image: "/public/images/archive/images/ig-post.png",
+	},
+	{
+		title: "Project Beta",
+		link: "/projects/beta",
+		image: "/public/images/archive/images/ig-post.png",
+	},
+	{
+		title: "Project Gamma",
+		link: "/projects/gamma",
+		image: "/public/images/archive/images/ig-post.png",
+	},
+];
+import Footer from "../components/Footer.astro";
+import Layout from "../layouts/Layout.astro";
+import "../style/global.css";
+import Slider from "../components/Slider.astro";
+import Overview from "../components/Overview.astro";
+
+const overviewSections = [
+	{
+		title: "Overview",
+		content:
+			"Trained at a German design agency, I create digital experiences that balance clarity and emotion. My work focuses on translating ideas into intuitive, engaging interfaces that connect with people.",
+	},
+	{
+		title: "Skills",
+		content:
+			"I specialize in web and UI design — shaping experiences with Astro, HTML, and CSS. My process blends visual storytelling with technical precision to craft designs that feel effortless and intentional.",
+	},
+	{
+		title: "Tools",
+		content:
+			"Figma, Illustrator, Astro, TailwindCSS, and Adobe After Effects.",
+	},
+];
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+	<Navi />
+
+	<div class="overflow-hidden mt-9">
+		<Hero
+			headline="Kim Loreen"
+			subheadline="Webdesigner currently based in Germany"
+			imageSrc="src/images/me-cover.png"
+			imageAlt="Hero preview image"
+		/>
+		<section>
+			<Projects />
+		</section>
+		<section class="pt-[100px] lg:pt-[220px] pb-[60px] lg:pb-[180px]">
+			<Overview sections={overviewSections} />
+		</section>
+	</div>
+	<Footer />
+</Layout>

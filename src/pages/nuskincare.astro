@@ -1,0 +1,122 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../style/global.css";
+import Navi from "../components/Navi.astro";
+import Footer from "../components/Footer.astro";
+import HeroVideo from "../components/Df_herovideo.astro";
+import FullImage from "../components/FullImage.astro";
+import myImage from "../../public/images/nu-thumbnail.png";
+import myImageTwo from "../../public/images/nu-screens-one.png";
+import Facts from "../components/Facts.astro"
+const facts = [
+  { title: 'Project', subtitle: 'Practice Project - Website design' },
+  { title: 'Time', subtitle: '2 Weeks' },
+  { title: 'Technologies', subtitle: 'Figma' }
+];
+
+import BentoGallery from '../components/BentoGallery.astro';
+
+const galleryImages = [
+  '/images/nu-landing-mockup.png',
+  '/images/nu-landing-square.png',
+  '/images/nu-landing-square-two.png',
+  '/images/nu-landing-tall.png'
+];
+import TextSplit from '../components/TextSplit.astro';
+import FeatureList from '../components/Features.astro';
+
+const features = [
+  {
+    title: "Bold Typography",
+    text: "Bold typography was chosen to convey emotional clarity and confidence, which is especially important when dealing with complex feelings. Large, strong typefaces create immediate visual impact, making key messages feel assertive and unambiguous. This directness helps users—particularly young people who may feel overwhelmed—to focus on what matters emotionally. The typography also acts as a visual anchor throughout the site, grounding the user in each section’s theme. By combining expressive fonts with thoughtful layout, the text becomes not just readable, but felt.",
+    image: "/images/typo-mockup.png",
+    highlight: true,
+  },
+  {
+    title: "Scrolling Effects",
+    text: "Scroll-based interactions introduce a sense of narrative pacing, encouraging users to move through the content at a reflective, personal rhythm. These effects create a subtle dynamic between control and flow—mirroring how emotions are often experienced. Parallax and fade-ins allow new layers of meaning to emerge as the user progresses, keeping the experience engaging without overwhelming. For younger users accustomed to fast-scrolling environments, this intentional slowdown helps foster mindfulness and emotional awareness. Scroll effects turn passive browsing into an emotional journey.",
+    image: "https://placehold.co/600x600",
+  },
+  {
+    title: "Visual Graphics",
+    text: "The visual graphics are designed to act as emotional cues—abstract shapes, textures, and color gradients help communicate moods and internal states that might be hard to put into words. This is particularly helpful for teens and young adults, who are often still learning how to identify and articulate their feelings. The graphics don’t just decorate the site; they contextualize the text, offering emotional context at a glance. Soft animations and symbolic imagery create an inviting, empathetic tone. These visuals help bridge the gap between digital experience and emotional understanding.",
+    image: "/images/graphics-mocckup.png",
+  },
+];
+
+import BentoThree from "../components/BentoThree.astro";
+const bentoImages = [
+  '/images/nu-mockup-tall.png',
+  '/images/nu-mockup-wide.png',
+  '/images/nu-mockup-square.png',
+  '/images/nu-mockup-square.png',
+];
+
+import FullWidthVideo from '../components/Video.astro';
+import Projectnav from '../components/Projectnav.astro';
+
+const projects = [
+  {
+    name: "Bauindustrie Website",
+    image: "/public/images/bau-thumbnail.png",
+    href: "/bauindustrie",
+  },
+  {
+    name: "Planora - Travel App",
+    image: "/public/images/planLogo.png",
+    href: "/planora",
+
+  },
+];
+import OffsetImage from "../components/OffsetImage.astro";
+import leftPic from "../../public/images/nu-mockup-left.png";
+import rightPic from "../../public/images/nu-mockup-right.png";
+---
+<Layout>
+    <Navi />
+    <HeroVideo 
+  videoSrc="/videos/nu-hero.mp4"
+  headline="Crafting a Gentle, Modern Experience for a Skincare Brand"
+/>
+<section class="mx-9 xl:mx-[90px] pt-[100px]">
+    <Facts facts={facts} />
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[180px pb-[60px] lg:pb-[180px]">
+   <FullImage src={myImage.src} alt="Example project image" />
+</section>
+<section>
+    <OffsetImage 
+  leftSrc={leftPic.src} 
+  rightSrc={rightPic.src} 
+  leftAlt="Left Image" 
+  rightAlt="Right Image" 
+/>
+</section>
+<section class="">
+   
+   <FullImage src={myImageTwo.src} alt="Example project image" />
+</section>
+
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[280px]">
+    <TextSplit
+        title="A Project Rooted in Clarity, Care, and Creativity"
+        content="This project was a practice exercise in website design, focusing on creating a clean, modern aesthetic that reflects the gentle nature of the skincare brand. The goal was to design a user-friendly interface that communicates the brand's values of clarity and care, while also showcasing its product range effectively."/>
+</section>
+     
+        
+</section> 
+
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[280px]">
+<BentoThree images={bentoImages} />
+</section>
+
+
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[280px]  pb-[100px]">
+    <TextSplit
+        title="Crafting a Website That Unites Without Losing Identity"
+        content="This project began as a practice exercise, but it quickly became an opportunity to fully explore my creative vision. With complete freedom to make design choices, I experimented with visual direction, layout, and artistic decisions. Through this process, I was able to expand my design thinking, refine my approach to art direction, and discover new ways to communicate ideas visually. "/>
+
+</section> 
+<Projectnav projects={projects} />
+    <Footer />
+</Layout>

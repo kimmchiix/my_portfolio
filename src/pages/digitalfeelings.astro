@@ -1,0 +1,132 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../style/global.css";
+import Navi from "../components/Navi.astro";
+import Footer from "../components/Footer.astro";
+import HeroVideo from "../components/Df_herovideo.astro";
+import Facts from "../components/Facts.astro"
+import FullImage from "../components/FullImage.astro";
+import myImage from "../../public/images/dfi-landingpage.png";
+import myImageTwo from "../../public/images/dfi-phone-screens.png";
+import myImageThree from "../../public/images/dfi-pc-screen.png";
+
+
+const facts = [
+  { title: 'Project', subtitle: 'Website Design' },
+  { title: 'Time', subtitle: '2 Months' },
+  { title: 'Technologies', subtitle: 'Figma Illustrator' }
+];
+
+import BentoGallery from '../components/BentoGallery.astro';
+
+const galleryImages = [
+  '/images/thumbnail-mockup.png',
+  '/images/dfi-square-two.png',
+  '/images/dfi-square-one.png',
+  '/images/dfi-tall.png'
+];
+import TextSplit from '../components/TextSplit.astro';
+import FeatureList from '../components/Features.astro';
+
+const features = [
+  {
+    title: "Bold Typography",
+    text: "Bold typography was chosen to convey emotional clarity and confidence, which is especially important when dealing with complex feelings. Large, strong typefaces create immediate visual impact, making key messages feel assertive and unambiguous. The typography also acts as a visual anchor throughout the site, grounding the user in each section’s theme. By combining expressive fonts with thoughtful layout, the text becomes not just readable, but felt.",
+    image: "/images/typo-mockup.png",
+    highlight: true,
+  },
+
+  {
+    title: "Visual Graphics",
+    text: "The messy line art mirrors the complexity of emotions — tangled, unclear, and sometimes hard to express. More than decoration, these abstract graphics act as emotional cues, helping especially young audiences connect text with feeling and making the experience more relatable and human.",
+    image: "/images/graphics-mocckup.png",
+  },
+];
+
+import BentoThree from "../components/BentoThree.astro";
+const bentoImages = [
+  '/images/dfi-tall-phone.png',
+  '/images/dfi-wide-phone.png',
+  '/images/phone-mockup.png',
+  '/images/phone-mockup-square.png',
+];
+
+import Video from "../components/Video.astro";
+import Projectnav from '../components/Projectnav.astro';
+
+const projects = [
+  {
+    name: "JVA Project",
+    image: "/images/jva-thumbnail.png",
+    href: "/jvavideo",
+  },
+  {
+    name: "Markt1 Website",
+    image: "/images/markt-landing.png",
+    href: "/markt1",
+
+  },
+];
+import OffsetImage from "../components/OffsetImage.astro";
+import leftPic from "../../public/images/dfi-pc-mockup-no-bg.png";
+import rightPic from "../../public/images/dfi-phone-mockup-no-bg.png";
+import TextImage from "../components/TextImage.astro";
+import TextImagePic from "../../public/images/bau-phone-wide.png";
+import TextImagePicTwo from "../../public/images/dfi-square-one.png";
+---
+<Layout>
+    <Navi />
+    <HeroVideo 
+  videoSrc="/videos/dgi-hero-video.mp4"
+  headline="Digital Feelings Initiative: Designing Emotion in the Digital Age"
+/>
+<section class="mx-9 xl:mx-[90px] pt-[100px]">
+    <Facts facts={facts} />
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[180px pb-[60px] lg:pb-[180px]">
+   <FullImage src={myImage.src} alt="Example project image" />
+</section>
+<section>
+    <OffsetImage 
+  leftSrc={leftPic.src} 
+  rightSrc={rightPic.src} 
+  leftAlt="Left Image" 
+  rightAlt="Right Image" 
+/>
+</section>
+
+
+<section class="mx-9 xl:mx-[90px]  pt-[100px] md:pt-[180px]">
+    <FeatureList features={features} headline="Key Features" />
+</section>
+
+<section class="pt-[100px] md:pt-[180px]  pb-[100px]">
+
+            <Video
+        src="./videos/dfi-mockup-video.mp4"
+        poster="/images/video-poster.jpg"
+        autoplay
+        loop
+        muted
+      />
+
+</section>
+
+
+<section class="">
+   
+   <FullImage src={myImageTwo.src} alt="Example project image" />
+</section>
+<section class=" ">
+
+   <FullImage src={myImageThree.src} alt="Example project image" />
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[180px] pb-[280px]">
+    <TextSplit
+        title="A Retrospective on Design and Strategy"
+        content="Looking back, this project was a great opportunity to explore how brand strategies and design choices can deeply influence a user's emotions. It was exciting to merge scientific insights and emotional storytelling into a visual experience—without relying on images. Experimenting with bold typography and layout taught me how powerful type alone can be in shaping tone and engagement."/>
+</section> 
+<Projectnav projects={projects} />
+    <Footer />
+</Layout>
+

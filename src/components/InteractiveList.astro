@@ -1,0 +1,52 @@
+---
+const { items = [] } = Astro.props;
+---
+
+<section class="relative w-full h-screen flex items-center justify-center px-10 text-white">
+  <ul class="space-y-6 text-3xl font-semibold text-center">
+    {items.map((item, index) => (
+      <li 
+        class={`hover-item relative opacity-0 fadeIn fade-in pb-3`} 
+        style={`animation-delay: ${index * 150}ms`}
+        data-image={item.image}
+      >
+        <a href={item.link} class="font-change transition-all duration-200">
+          {item.title}
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <!-- Hover teaser image -->
+  <div 
+    id="hover-image" 
+    class="pointer-events-none fixed top-0 left-0 w-[340px] aspect-video bg-cover bg-center opacity-0 transition-opacity duration-300 rounded-lg shadow-lg z-50"
+  ></div>
+</section>
+
+
+<script is:client="load">
+  document.addEventListener("DOMContentLoaded", () => {
+    const hoverImage = document.getElementById("hover-image");
+    const hoverItems = document.querySelectorAll(".hover-item");
+
+    hoverItems.forEach(item => {
+      item.addEventListener("mouseenter", () => {
+        const img = item.getAttribute("data-image");
+        hoverImage.style.backgroundImage = `url(${img})`;
+        hoverImage.classList.remove("opacity-0");
+        hoverImage.classList.add("opacity-100");
+      });
+
+      item.addEventListener("mouseleave", () => {
+        hoverImage.classList.remove("opacity-100");
+        hoverImage.classList.add("opacity-0");
+      });
+
+      item.addEventListener("mousemove", (e) => {
+        hoverImage.style.top = `${e.clientY - 180}px`;
+        hoverImage.style.left = `${e.clientX + 1}px`;
+      });
+    });
+  });
+</script>
