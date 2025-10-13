@@ -1,12 +1,8 @@
----
-import logo from '../images/ig-posts.png';
----
-
 <navi class="relative z-50">
   <div
     id="navbar"
     class="flex md:flex-row flex-col max-md:gap-2 justify-between items-center
-           px-[20px] md:px-[90px] pb-[30px] pt-[30px]
+           px-[20px] md:px-[90px] pb-[20px] pt-[20px]
            fixed top-0 w-full
            bg-[#F9F5F3]/80 backdrop-blur-md
            drop-shadow-[0_25px_25px_rgba(0,0,0,0.05)]
@@ -15,15 +11,15 @@ import logo from '../images/ig-posts.png';
   >
     <!-- Left side: logo + hiring badge -->
     <div class="flex items-center gap-4">
-      <a href="/" class="flex items-center">
+      <a href="/" class="flex items-center scale-70 md:scale-100 transition-transform duration-300">
         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 100 116" fill="none">
           <path d="M20.4782 65.9701C7.97803 58.9701 -7.02173 36.9701 6.05358 17.1197C14.1756 4.78922 18.1449 39.6368 20.4782 65.9701C20.8115 40.1368 56.8573 -9.88242 74.0533 3.11959C94.5533 18.6197 44.1449 51.1368 20.4782 65.9701C42.9782 65.4701 107.553 94.6196 97.5533 110.62C89.119 124.115 27.4782 103.97 20.4782 65.9701C20.4782 90.9701 40.5766 121.738 22.0535 110.62C3.47827 99.4701 15.9781 69.9701 20.4782 65.9701Z" fill="#B10F37"/>
           <path d="M20.4782 65.9701C7.97803 58.9701 -7.02173 36.9701 6.05358 17.1197C14.1756 4.78922 18.1449 39.6368 20.4782 65.9701ZM20.4782 65.9701C15.9781 69.9701 3.47827 99.4701 22.0535 110.62C40.5766 121.738 20.4782 90.9701 20.4782 65.9701ZM20.4782 65.9701C20.8115 40.1368 56.8573 -9.88242 74.0533 3.11959C94.5533 18.6197 44.1449 51.1368 20.4782 65.9701ZM20.4782 65.9701C27.4782 103.97 89.119 124.115 97.5533 110.62C107.553 94.6196 42.9782 65.4701 20.4782 65.9701Z" stroke="#B10F37" stroke-width="2"/>
         </svg>
       </a>
 
-      <!-- Hiring badge -->
-      <div class="flex items-center gap-2 text-[#21A250] text-sm font-medium uppercase tracking-wide select-none">
+      <!-- Desktop hiring badge -->
+      <div class="hidden md:flex items-center gap-2 text-[#21A250] text-sm font-medium uppercase tracking-wide select-none">
         <span class="relative flex h-3 w-3">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#21A250] opacity-75"></span>
           <span class="relative inline-flex rounded-full h-3 w-3 bg-[#21A250]"></span>
@@ -34,12 +30,27 @@ import logo from '../images/ig-posts.png';
 
     <!-- Right side: navigation links -->
     <ul class="flex space-x-4">
-      <li><a href="/" class="text-[#212121] hover:text-[#B10F37] hover:italic uppercase transition-all">Home</a></li>
-      <li><a href="/about" class="text-[#212121] hover:text-[#B10F37] hover:italic uppercase transition-all">About</a></li>
-      <li><a href="/projects" class="text-[#212121] hover:text-[#B10F37] hover:italic uppercase transition-all">Projects</a></li>
+      <li><a href="/" class="text-sm text-[#212121] hover:text-[#B10F37] hover:italic uppercase transition-all">Home</a></li>
+      <li><a href="/about" class="text-sm text-[#212121] hover:text-[#B10F37] hover:italic uppercase transition-all">About</a></li>
+      <li><a href="/projects" class="text-sm text-[#212121] hover:text-[#B10F37] hover:italic uppercase transition-all">Projects</a></li>
     </ul>
   </div>
+
+  <!--  Move this outside of the navbar div -->
+    <a href="mailto:kimkujtkowski@gmail.com">
+  <div class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 flex items-center bg-[#F9F5F3]/90 backdrop-blur-md rounded-full px-4 py-2 shadow-md z-50">
+    
+    
+  
+    <span class="relative flex h-2.5 w-2.5 mr-2">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#21A250] opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#21A250]"></span>
+    </span>
+    <span class="text-xs font-medium text-[#21A250] uppercase">Open for hiring</span>
+  </div>
+    </a>
 </navi>
+
 
 <script>
   const navbar = document.getElementById("navbar");
@@ -50,10 +61,10 @@ import logo from '../images/ig-posts.png';
 
     if (window.scrollY > lastScrollY && window.scrollY > 50) {
       // Scrolling down → move up slightly
-      navbar.classList.add("translate-y-[-20px]", "bg-[#F9F5F3]/70");
+      navbar.classList.add("translate-y-[-15px]", "bg-[#F9F5F3]/70");
     } else {
       // Scrolling up → reset position
-      navbar.classList.remove("translate-y-[-20px]", "bg-[#F9F5F3]/70");
+      navbar.classList.remove("translate-y-[-15px]", "bg-[#F9F5F3]/70");
     }
 
     lastScrollY = window.scrollY;

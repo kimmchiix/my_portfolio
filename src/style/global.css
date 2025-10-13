@@ -62,6 +62,9 @@ h1 {
     @media screen and (max-width: 768px) {
         font-size: 100px;
     }
+    @media screen and (max-width: 450px) {
+        font-size: 80px;
+    }
 }
 .aboutHeadline {
   font-size: 160px;
@@ -142,7 +145,7 @@ h3, .h3 {
 }
 
 p {
-  font-size: clamp(.75rem, 0.5rem + 10vw, 1.25rem);
+  font-size: clamp(.75rem, 0.5rem + 2vw, 1.25rem);
   color: #212121;
   font-family: "././public/fonts/instrument-sans/InstrumentSans-Regular.ttf" or "Arial", sans-serif;
   font-weight: 400;
