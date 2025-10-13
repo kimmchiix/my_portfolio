@@ -5,10 +5,7 @@ import Navi from "../components/Navi.astro";
 import Footer from "../components/Footer.astro";
 import HeroVideo from "../components/Df_herovideo.astro";
 import FullImage from "../components/FullImage.astro";
-import myImage from "../../public/images/markt-landing-mockup.png";
 import OffsetImage from "../components/OffsetImage.astro";
-import leftPic from "../../public/images/markt-mockup-left.png";
-import rightPic from "../../public/images/markt-mockup-right.png";
 import Facts from "../components/Facts.astro"
 const facts = [
   { title: 'Project', subtitle: 'Website Redesign and Programming' },
@@ -56,12 +53,12 @@ import Projectnav from '../components/Projectnav.astro';
 const projects = [
   {
     name: "Nu+ Skincare",
-    image: "/public/images/nu-thumbnail.png",
+    image: "/images/nu-thumbnail.png",
     href: "/nuskincare",
   },
   {
     name: "Bauindustrie Website Relaunch",
-    image: "/public/images/bau-thumbnail.png",
+    image: "/images/bau-thumbnail.png",
     href: "/bauindustrie",
   },
 ];
@@ -76,13 +73,13 @@ const projects = [
 <section class=" mx-9 xl:mx-[90px] pt-[100px] ">
     <Facts facts={facts} />
 </section>
-<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[180px pb-[60px] lg:pb-[180px]">
-   <FullImage src={myImage.src} alt="Example project image" />
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[180px] pb-[60px] lg:pb-[180px]">
+   <FullImage src="/images/markt-landing-mockup.png" alt="Example project image" />
 </section>
 <section>
     <OffsetImage 
-  leftSrc={leftPic.src} 
-  rightSrc={rightPic.src} 
+  leftSrc="/images/markt-mockup-left.png"
+  rightSrc="/images/markt-mockup-right.png"
   leftAlt="Left Image" 
   rightAlt="Right Image" 
 />

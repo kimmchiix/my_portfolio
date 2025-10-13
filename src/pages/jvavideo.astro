@@ -22,12 +22,12 @@ import Projectnav from '../components/Projectnav.astro';
 const projects = [
   {
     name: "Markt1 Website",
-    image: "/public/images/markt-landing.png",
+    image: "/images/markt-landing.png",
     href: "/markt1",
   },
   {
     name: "Nu+ Skincare",
-    image: "/public/images/nu-thumbnail.png",
+    image: "/images/nu-thumbnail.png",
     href: "/nuskincare",
 
   },
@@ -37,7 +37,7 @@ import Footer from "../components/Footer.astro";
 <Layout>
     <Navi />
     <Header
-    videoSrc="./videos/jva-hero.mp4"
+    videoSrc="/videos/jva-hero.mp4"
     headline="Reframing the Image: A Prison Recruiting Film Project"/>
    <section class="mx-9 xl:mx-[90px] pt-[60px] lg:pt-[180px]">  
     <Facts facts={facts} />
@@ -52,7 +52,7 @@ import Footer from "../components/Footer.astro";
  
 <section class="pt-[100px] md:pt-[180px]">
         <Video
-        src="./videos/01_Hauptvideo-jva_english-sub-komp.mp4"
+        src="/videos/01_Hauptvideo-jva_english-sub-komp.mp4"
         poster="/images/video-poster.jpg"
         controls
         autoplay

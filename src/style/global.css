@@ -147,7 +147,7 @@ h3, .h3 {
 p {
   font-size: clamp(.75rem, 0.5rem + 2vw, 1.25rem);
   color: #212121;
-  font-family: "././public/fonts/instrument-sans/InstrumentSans-Regular.ttf" or "Arial", sans-serif;
+  font-family: "Instrument Sans" or "Arial", sans-serif;
   font-weight: 400;
   line-height: 1.5;
 

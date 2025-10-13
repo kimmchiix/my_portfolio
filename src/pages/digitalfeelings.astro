@@ -6,9 +6,7 @@ import Footer from "../components/Footer.astro";
 import HeroVideo from "../components/Df_herovideo.astro";
 import Facts from "../components/Facts.astro"
 import FullImage from "../components/FullImage.astro";
-import myImage from "../../public/images/dfi-landingpage.png";
-import myImageTwo from "../../public/images/dfi-phone-screens.png";
-import myImageThree from "../../public/images/dfi-pc-screen.png";
+
 
 
 const facts = [
@@ -68,11 +66,7 @@ const projects = [
   },
 ];
 import OffsetImage from "../components/OffsetImage.astro";
-import leftPic from "../../public/images/dfi-pc-mockup-no-bg.png";
-import rightPic from "../../public/images/dfi-phone-mockup-no-bg.png";
-import TextImage from "../components/TextImage.astro";
-import TextImagePic from "../../public/images/bau-phone-wide.png";
-import TextImagePicTwo from "../../public/images/dfi-square-one.png";
+
 ---
 <Layout>
     <Navi />
@@ -83,13 +77,13 @@ import TextImagePicTwo from "../../public/images/dfi-square-one.png";
 <section class="mx-9 xl:mx-[90px] pt-[100px]">
     <Facts facts={facts} />
 </section>
-<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[180px pb-[60px] lg:pb-[180px]">
-   <FullImage src={myImage.src} alt="Example project image" />
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[180px] pb-[60px] lg:pb-[180px]">
+   <FullImage src="/images/dfi-landingpage.png" alt="Example project image" />
 </section>
 <section>
     <OffsetImage 
-  leftSrc={leftPic.src} 
-  rightSrc={rightPic.src} 
+  leftSrc="/images/dfi-pc-mockup-no-bg.png"
+  rightSrc="/images/dfi-phone-mockup-no-bg.png"
   leftAlt="Left Image" 
   rightAlt="Right Image" 
 />
@@ -103,7 +97,7 @@ import TextImagePicTwo from "../../public/images/dfi-square-one.png";
 <section class="pt-[100px] md:pt-[180px]  pb-[100px]">
 
             <Video
-        src="./videos/dfi-mockup-video.mp4"
+        src="/videos/dfi-mockup-video.mp4"
         poster="/images/video-poster.jpg"
         autoplay
         loop
@@ -115,11 +109,11 @@ import TextImagePicTwo from "../../public/images/dfi-square-one.png";
 
 <section class="">
    
-   <FullImage src={myImageTwo.src} alt="Example project image" />
+   <FullImage src="/images/dfi-phone-screens.png" alt="Example project image" />
 </section>
 <section class=" ">
 
-   <FullImage src={myImageThree.src} alt="Example project image" />
+   <FullImage src="/images/dfi-pc-screen.png" alt="Example project image" />
 </section>
 <section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[180px] pb-[280px]">
     <TextSplit

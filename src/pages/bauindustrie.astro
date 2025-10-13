@@ -5,9 +5,6 @@ import Navi from "../components/Navi.astro";
 import Footer from "../components/Footer.astro";
 import HeroVideo from "../components/Df_herovideo.astro";
 import FullImage from "../components/FullImage.astro";
-import myImage from "../../public/images/bau-mockup-main.png";
-import myImageTwo from "../../public/images/bau-mockup-slider.png";
-import myImageThree from "../../public/images/dfi-pc-screen.png";
 
 import Facts from "../components/Facts.astro"
 const facts = [
@@ -17,8 +14,7 @@ const facts = [
 ];
 
 import OffsetImage from "../components/OffsetImage.astro";
-import leftPic from "../../public/images/bau-mockup-left.png";
-import rightPic from "../../public/images/bau-mockup-right.png";
+
 
 import BentoGallery from '../components/BentoGallery.astro';
 
@@ -47,13 +43,13 @@ import Projectnav from '../components/Projectnav.astro';
 const projects = [
   {
     name: "Planora - Travel App",
-    image: "/public/images/planLogo.png",
+    image: "/images/planLogo.png",
     href: "/planora",
 
   },
   {
     name: "Digital Feelings Initiative",
-    image: "/public/images/dfi-thumbnail.png",
+    image: "/images/dfi-thumbnail.png",
     href: "/digitalfeelings",
 
   },
@@ -69,13 +65,13 @@ const projects = [
 <section class="mx-9 xl:mx-[90px] pt-[100px]">
     <Facts facts={facts} />
 </section>
-<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[180px pb-[60px] lg:pb-[180px]">
-   <FullImage src={myImage.src} alt="Example project image" />
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[180px] pb-[60px] lg:pb-[180px]">
+   <FullImage src="/images/bau-mockup-main.png" alt="Example project image" />
 </section>
 <section>
     <OffsetImage 
-  leftSrc={leftPic.src} 
-  rightSrc={rightPic.src} 
+  leftSrc="/images/bau-mockup-left.png"
+  rightSrc="/images/bau-mockup-right.png"
   leftAlt="Left Image" 
   rightAlt="Right Image" 
 />
@@ -92,7 +88,7 @@ const projects = [
 <section class="pt-[100px] md:pt-[180px]  pb-[100px]">
 
             <Video
-        src="./videos/bau-desktop-video.mp4"
+        src="/videos/bau-desktop-video.mp4"
         poster="/images/video-poster.jpg"
         autoplay
         loop
