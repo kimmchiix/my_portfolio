@@ -1,0 +1,197 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navi from "../components/Navi.astro";
+import AboutHeader from "../components/AboutHeader.astro";
+import Facts from "../components/Facts.astro";
+const facts = [
+  { title: 'Project', subtitle: 'App Design' },
+  { title: 'Time', subtitle: '3 Weeks' },
+  { title: 'Technologies', subtitle: 'Figma, Premier Pro' },
+  { title: 'Role', subtitle: 'Lead UI Designer, assistant UX Researcher,' }
+];
+import FullImage from "../components/FullImage.astro";
+import TextSplit from "../components/TextSplit.astro";
+import OffsetImage from "../components/OffsetImage.astro";
+import Card from "../components/Card.astro";
+import Overview from "../components/Overview.astro";
+
+const overviewSections = [
+	{
+		title: "Airbnb",
+		content:
+			"Airbnb is a platform that connects travelers with hosts offering unique accommodations. It emphasizes user-generated content and community-driven experiences. However, its planning features are basic, requiring users to manage itineraries separately.",
+	},
+	{
+		title: "Booking.com",
+		content:
+			"Booking.com is a widely-used travel booking platform that offers a range of accommodations, from hotels to vacation rentals. While it provides a comprehensive search experience, its itinerary management tools are limited, often requiring users to juggle multiple bookings across different platforms.",
+	},
+	{
+		title: "Wanderlog",
+		content:
+			"Wanderlog is a travel planning app that allows users to organize their trips collaboratively. It offers features like itinerary sharing, real-time updates, and a user-friendly interface. However the most important features are hidden behind a paywall",
+	},
+   
+];
+
+import Insights from "../components/InsightCard.astro";
+
+import BentoGallery from '../components/BentoCase.astro';
+
+const systemImages = [
+  "/images/font2.png",
+  "/images/font1.png",
+  "/images/icon-planora-logo.png",
+  "/images/wordlogo.png",
+  "/images/brandcolors.png",
+  "/images/iconset.png",
+  "/images/buttonset.png",
+];
+import WireframesShowcase from "../components/WireframeShowcase.astro";
+import Video from "../components/Video.astro";
+import Projectnav from '../components/Projectnav.astro';
+
+const projects = [
+  {
+    name: "JVA Project",
+    image: "/images/jva-thumbnail.png",
+    href: "/jvavideo",
+  },
+  {
+    name: "Markt1 Website",
+    image: "/images/markt-landing.png",
+    href: "/markt1",
+
+  },
+];
+import Footer from "../components/Footer.astro";
+---
+
+<Layout>
+    <Navi />
+    <AboutHeader
+ subheadline="UI/UX case study"
+ headline="Planora"
+ text="Planora is a UI/UX-driven travel app designed to simplify and enhance the way users plan their trips."
+ image="/images/planora-screen-right.png" />
+ <section class="mx-9 xl:mx-[90px] ">
+    <Facts facts={facts} />
+</section>
+<section class="mx-9 xl:mx-[90px]  pb-[60px] lg:pb-[180px] pt-[100px]">
+   <FullImage src="/images/planora-phone-screens-two.png" alt="Example project image" />
+</section>
+<section class="mx-9 xl:mx-[90px] ">
+    <TextSplit
+        title="About the Project"
+        content="This group project centered on the creation of Planora, a UI/UX-driven travel app designed to simplify and enhance the way users plan their trips. Combining innovation with traditional planning methods, Planora brings together essential features such as scheduling, navigation, and real-time adjustments—all unified within a single platform. Powered by Nora, the app’s personalized AI assistant, Planora adapts dynamically to unexpected changes, ensuring that travel planning becomes effortless, intuitive, and even enjoyable again."/>
+</section> 
+<section>
+    <OffsetImage 
+  leftSrc="/images/planora-screen-left.png"
+  rightSrc="/images/planora-screen-right.png" 
+  leftAlt="Left Image" 
+  rightAlt="Right Image" 
+/>
+</section>
+<section class="mx-9 xl:mx-[90px] ">
+    <TextSplit
+        title="The Problem"
+        content="Travel planning can be a complex and overwhelming task, often requiring users to juggle multiple tools and resources. This fragmentation leads to confusion, missed opportunities, and a lack of personalized recommendations."/>
+</section> 
+
+<section class="mx-9 xl:mx-[90px] pt-[100px] ">
+    <h2 class="h2 text-center mb-[30px]">Personas</h2>
+    <div style="display:flex; gap:20px; flex-wrap:wrap" class="align-center justify-center">
+
+<Card
+  title="Families"
+  bullet1="2 Adults (42-40) + 2 Kids (8-12)"
+  bullet2="Kids activities focused itinerary"
+  bullet3="no long waiting queues"
+  image="/images/persona1.png"
+/>
+
+<Card
+  title="Backpackers"
+  bullet1="young Adults (20-30)"
+  bullet2="Budget conscious"
+  bullet3="wants to see Hidden Gems"
+  image="/images/persona2.png"
+/>
+
+<Card
+  title="Business Travelers"
+  bullet1="Adults (30-50)"
+  bullet2="Kulture and Food experiences"
+  bullet3="Short time Travel"
+  image="/images/persona3.png"
+/>
+</div>
+</section>
+
+<section class="pt-[100px] lg:pt-[220px] pb-[60px] lg:pb-[180px]">
+    <h2 class="h2 mx-9 xl:mx-[90px] mb-[30px]">Competitive analysis</h2>
+	<Overview sections={overviewSections} />
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[100px] ">
+    <h2 class="h2 text-center mb-[30px]">Key Insights</h2>
+
+<div class="flex flex-wrap gap-[24px] justify-center">
+<Insights
+  insights={[
+    { number: "1.", text: "Being able to plan with friends and families together" },
+    { number: "2.", text: "Everything needs to be planned in one place" },
+    { number: "3.", text: "Have a plan that is adaptive to outside circumstances" },
+    { number: "4.", text: "Have AI recommendations understand my needs" }
+  ]}
+/>
+</div>
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[100px] md:pt-[180px] pb-[60px] lg:pb-[180px]">
+    <h2 class="h2 text-center mb-[30px]">User Journey</h2>
+    <FullImage src="/images/sidemapbig.png" alt="Example project image" />
+</section>
+    <section class="mx-9 xl:mx-[90px] mt-[90px]">
+  <h2 class="h2 text-[42px] mb-[30px]">Design System</h2>
+  <BentoGallery images={systemImages} />
+</section>
+<!-- <section class="mx-9 xl:mx-[90px] pt-[100px]">
+    
+    <WireframesShowcase/>
+</section> -->
+<section class="mx-9 xl:mx-[90px] pt-[100px] ">
+    <TextSplit
+        title="The Solution"
+        content="Planora addresses the challenges of travel planning by offering a unified platform that integrates essential features such as scheduling, navigation, and real-time adjustments. With the help of Nora, the app’s personalized AI assistant, users can enjoy a seamless planning experience that adapts to their needs and preferences."/>
+</section> 
+<section class="pt-[100px] md:pt-[180px] ">
+
+            <Video
+        src="/videos/planora-video-one.mp4"
+        poster="/images/planLogo.png"
+        autoplay
+        loop
+        muted
+        controls
+      />
+
+</section>
+<section class="mx-9 xl:mx-[90px] pt-[100px] ">
+
+   <FullImage src="/images/planora-phone-screens-three.png" alt="Example project image" />
+</section>
+<section class="pt-[100px]">
+    <div class=" bg-[#DD630B] p-5">
+        <FullImage src="/images/Planora-features-one.png" alt="Example project image" />
+    </div>
+   <div class=" bg-[#C6A6F3] p-5">
+      <FullImage src="/images/Planora-features-two.png" alt="Example project image" />
+   </div>
+   <div class=" bg-[#FFAA6D] p-5">
+    <FullImage src="/images/Planora-features-three.png" alt="Example project image" />
+   </div>
+</section>
+
+<Projectnav projects={projects} />
+    <Footer />
+</Layout>

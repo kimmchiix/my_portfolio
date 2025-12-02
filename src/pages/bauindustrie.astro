@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import "../style/global.css";
 import Navi from "../components/Navi.astro";
 import Footer from "../components/Footer.astro";
+import AboutHeader from "../components/AboutHeader.astro";
 import HeroVideo from "../components/Df_herovideo.astro";
 import FullImage from "../components/FullImage.astro";
 
@@ -10,7 +11,8 @@ import Facts from "../components/Facts.astro"
 const facts = [
   { title: 'Project', subtitle: 'Website redesign' },
   { title: 'Time', subtitle: '2 Months' },
-  { title: 'Technologies', subtitle: 'Figma' }
+  { title: 'Technologies', subtitle: 'Figma' },
+    { title: 'Role', subtitle: 'Lead Designer' }
 ];
 
 import OffsetImage from "../components/OffsetImage.astro";
@@ -44,7 +46,7 @@ const projects = [
   {
     name: "Planora - Travel App",
     image: "/images/planLogo.png",
-    href: "/planora",
+    href: "/planora-case-study",
 
   },
   {
@@ -58,10 +60,15 @@ const projects = [
 ---
 <Layout>
     <Navi />
-    <HeroVideo 
+    <!-- <HeroVideo 
   videoSrc="/videos/bau-hero.mp4"
   headline="Designing the Digital Voice for a Future-Proof Construction Industry"
-/>
+/> -->
+<AboutHeader
+ subheadline="Website Redesign"
+ headline="Bauindustrie"
+ text="A comprehensive website redesign for the German Construction Industry Association, focusing on modern aesthetics, user experience, and sustainability."
+ image="/images/bau-mockup-left.png" />
 <section class="mx-9 xl:mx-[90px] pt-[100px]">
     <Facts facts={facts} />
 </section>
@@ -89,7 +96,7 @@ const projects = [
 
             <Video
         src="/videos/bau-desktop-video.mp4"
-        poster="/images/video-poster.jpg"
+        poster="/images/bau-mockup-main.png"
         autoplay
         loop
         muted

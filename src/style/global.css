@@ -4,19 +4,27 @@
 
 
 
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #94002c #F9F5F3;
+  }
 
-  .instrument-serif-regular {
-    font-family: "Instrument Serif", serif;
-    font-weight: 400;
-    font-style: normal;
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 4px;
   }
-  
-  .instrument-serif-regular-italic {
-    font-family: "Instrument Serif", serif;
-    font-weight: 400;
-    font-style: italic;
+
+  *::-webkit-scrollbar-track {
+    background: #F9F5F3;
   }
-  
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #94002c;
+    border-radius: 0px;
+    border: none;
+  }
 
 body {
   padding: 0;
@@ -67,16 +75,15 @@ h1 {
     }
 }
 .aboutHeadline {
-  font-size: 160px;
+    font-size: clamp(80px, 0.5rem + 3vw, 160px);
+  
   color: #B10F37;
   font-family: "Instrument Serif", Arial, sans-serif;
   font-weight: 400;
   line-height: 1;
   text-align: left!important;
 
-    @media screen and (max-width: 768px) {
-        font-size: 100px;
-    }
+
 }
 .archiveHeadline {
   font-size: 100px;
@@ -126,7 +133,7 @@ h2 {
   color: #F9F5F3;
   font-family: "Instrument Serif", Arial, sans-serif;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1;
 
 
   
@@ -145,7 +152,7 @@ h3, .h3 {
 }
 
 p {
-  font-size: clamp(.75rem, 0.5rem + 2vw, 1.25rem);
+  font-size: clamp(.5rem, 0.5rem + 2vw, 1.25rem);
   color: #212121;
   font-family: "Instrument Sans" or "Arial", sans-serif;
   font-weight: 400;
@@ -314,7 +321,7 @@ p {
 
 
     @media screen and (max-width: 768px) {
-        font-size: 16px;
+        font-size: 14px;
     }
    }
    .subheadline {
@@ -341,7 +348,7 @@ p {
    }
 
    .fact-subtitle {
-   font-size: clamp(1rem, 0.5rem + 1vw, 1.25rem);
+   font-size: clamp(14px, 0.5rem + 1vw, 1.25rem);
     color: #212121;
     font-family: "Instrument Sans", Arial, sans-serif;
     font-weight: 400;

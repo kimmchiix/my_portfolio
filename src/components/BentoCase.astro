@@ -1,0 +1,87 @@
+---
+export interface Props { images: string[] }
+const { images = [] } = Astro.props;
+---
+
+<section class="bento-grid">
+  {images.map((src,i)=>(
+    <div class={`item item-${i+1}`}>
+      <img src={src} alt="Bento visual" />
+    </div>
+  ))}
+</section>
+
+
+<style>
+/* ============ DESKTOP (unchanged layout) ============ */
+.bento-grid {
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:22px;
+  padding:20px 0;
+}
+
+.item {
+  background:#fff;
+  border-radius:22px;
+ 
+  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.05),0 12px 32px rgba(0,0,0,.07);
+  transition:.35s ease;
+}
+.item:hover { transform:translateY(-4px) scale(1.02); }
+
+/* * * IMAGE FIT: CLEAN, NO CROPPING * * */
+.item img {
+  width:100%;
+  height:100%;
+  object-fit:fill;
+}
+
+/* Desktop grid */
+.item-1 {grid-column:span 2;aspect-ratio:9/16;}
+.item-2 {grid-column:span 2;aspect-ratio:9/16;}
+.item-3 {grid-column:span 2;aspect-ratio:9/16;}
+.item-4 {grid-column:span 6;aspect-ratio:16/9;}
+
+.item-5 {grid-column:span 4;aspect-ratio:4/3;}
+.item-6 {grid-column:span 4;aspect-ratio:4/3;}
+.item-7 {grid-column:span 4;aspect-ratio:4/3;}
+
+
+
+/* ============ TABLET — balanced layout ============ */
+@media(max-width:900px){
+  .bento-grid{grid-template-columns:repeat(6,1fr);gap:18px;}
+
+  .item-1,.item-2,.item-3{grid-column:span 3;}
+  .item-4{grid-column:span 6;}
+  
+  .item-5,.item-6,.item-7{grid-column:span 3;}
+}
+
+
+
+/* ============ MOBILE FIX — prevents messy stacking ============ */
+/* We keep them in *proper order* & same tile scale */
+@media(max-width:600px){
+  .bento-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    padding-bottom:40px;
+  }
+
+  .item{
+  
+    border-radius:18px;
+  }
+
+  /* Maintain hierarchy visually — big piece stays big */
+  .item-4, .item-5, .item-6, .item-7 {grid-column:span 2;aspect-ratio:16/10;}
+
+  /* All others clean 3:4 tiles */
+  .item-1,.item-2,.item-3{grid-column:span 1;aspect-ratio:3/4;}
+}
+</style>

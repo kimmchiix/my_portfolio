@@ -1,0 +1,97 @@
+---
+export interface Insight {
+  number: string;
+  text: string;
+}
+
+// Cast direkt beim Zugriff
+const { insights = [] } = Astro.props as { insights?: Insight[] };
+---
+
+
+<section class="insights-wrapper">
+  
+
+  <div class="insights-grid">
+    {insights.map((i) => (
+      <div class="insight-card">
+        <div class="number">{i.number}</div>
+        <p>{i.text}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+.insights-wrapper {
+  padding: 60px 0;
+}
+
+/* Headline */
+.headline {
+  font-family: serif;
+  font-size: 2.5rem;
+  color: #a2222f;
+  margin-bottom: 40px;
+}
+
+/* Grid Layout */
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.insight-card {
+  background: #F9F5F3;
+  padding: 36px 36px;
+  border-radius: 14px;
+  text-align: center;
+
+  box-shadow: 0 6px 22px rgba(0,0,0,0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  animation: floaty 4s ease-in-out infinite alternate;
+}
+
+/* Hover for desktop */
+.insight-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(0,0,0,0.15);
+}
+
+/* Number styling */
+.number {
+  font-family: "Instrument", serif;
+  font-size: 2.4rem;
+  color: #b63232;
+  font-weight: 500;
+}
+
+/* Body text */
+.insight-card p {
+  margin: 0;
+  color: #222;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+/* Float animation */
+@keyframes floaty {
+  to { transform: translateY(-6px); }
+}
+
+
+/* Mobile stacking */
+@media (max-width: 900px) {
+  .insights-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+</style>
+‚

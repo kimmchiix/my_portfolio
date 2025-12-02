@@ -13,6 +13,16 @@ import Layout from "../layouts/Layout.astro";
 import "../style/global.css";
 import Slider from "../components/Slider.astro";
 import Overview from "../components/Overview.astro";
+import Archive from "../components/Archive.astro";
+const items = [
+	
+{
+		title: "JVA Recruiting Video",
+		image: "/images/jva-thumbnail.png",
+		href: "/jvavideo",
+	},
+
+];
 
 const overviewSections = [
 	{
@@ -48,8 +58,11 @@ const overviewSections = [
 			<Projects />
 		</section>
 		<section class="pt-[100px] lg:pt-[220px] pb-[60px] lg:pb-[180px]">
+			<h2 class="h2 mx-9 xl:mx-[90px] pb-9">About me</h2>
 			<Overview sections={overviewSections} />
 		</section>
+
 	</div>
+	
 	<Footer />
 </Layout>

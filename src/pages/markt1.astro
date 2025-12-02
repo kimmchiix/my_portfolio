@@ -4,13 +4,15 @@ import "../style/global.css";
 import Navi from "../components/Navi.astro";
 import Footer from "../components/Footer.astro";
 import HeroVideo from "../components/Df_herovideo.astro";
+import AboutHeader from "../components/AboutHeader.astro";
 import FullImage from "../components/FullImage.astro";
 import OffsetImage from "../components/OffsetImage.astro";
 import Facts from "../components/Facts.astro"
 const facts = [
   { title: 'Project', subtitle: 'Website Redesign and Programming' },
   { title: 'Time', subtitle: '2 Months' },
-  { title: 'Technologies', subtitle: 'Figma, Payload, Typescript, Tailwind' }
+  { title: 'Technologies', subtitle: 'Figma, Payload, Typescript, Tailwind' },
+   { title: 'Role', subtitle: 'Lead Designer, Lead Developer' }
 ];
 
 import BentoGallery from '../components/BentoGallery.astro';
@@ -66,10 +68,15 @@ const projects = [
 ---
 <Layout>
     <Navi />
-    <HeroVideo 
+    <!-- <HeroVideo 
   videoSrc="/videos/Markt1-hero-video.mp4"
   headline="Markt1 Website Redesign: Elevating Editorial Design Online"
-/>
+/> -->
+    <AboutHeader
+ subheadline="Redesign & Development"
+ headline="Markt1"
+ text="Markt1 is a renowned German editorial design and typography magazine. I redesigned and developed their website to better reflect their brand identity and showcase their work."
+ image="/images/markt-mockup-right.png" />
 <section class=" mx-9 xl:mx-[90px] pt-[100px] ">
     <Facts facts={facts} />
 </section>

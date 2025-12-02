@@ -1,0 +1,91 @@
+---
+const wireframes = [
+  "/images/Profile--dashboard--wireframe.png",
+  "/images/dayplan--wireframe.png",
+  "/images/interests-wireframe.png",
+];
+---
+
+<section class="wireframe-section">
+
+  <h2 class="h2">Wireframes</h2>
+
+  <div class="wireframes-grid">
+    {wireframes.map(img => (
+      <div class="wireframe-card">
+        <img src={img} alt="wireframe image"/>
+      </div>
+    ))}
+  </div>
+
+</section>
+
+
+<style>
+/* Main layout */
+.wireframe-section {
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:32px;
+  align-items:start;
+  margin:80px 0;
+}
+
+/* Headline left side */
+.headline {
+  grid-column:span 3;
+  font-size:48px;
+  margin:0;
+  font-family: "Instrument", serif; /* apple-like classical elegance */
+  color:#9a1c1c;
+  font-weight:500;
+}
+
+/* Three wireframe thumbnails */
+.wireframes-grid {
+  grid-column:span 9;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+}
+
+.wireframe-card {
+  overflow:hidden;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+
+/* Better image rendering than background-image */
+.wireframe-card img {
+  width:100%;
+  aspect-ratio:9/16;
+  object-fit:cover;
+  display:block;
+}
+
+/* Hover motion */
+.wireframe-card:hover {
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:0 20px 50px rgba(0,0,0,.10);
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:950px){
+  .wireframe-section { grid-template-columns:repeat(6,1fr); }
+  .headline { grid-column:span 6;margin-bottom:20px; font-size:40px; }
+  .wireframes-grid { grid-column:span 6; grid-template-columns:repeat(3,1fr); }
+}
+
+@media(max-width:650px){
+  .wireframes-grid { grid-template-columns:repeat(2,1fr); }
+}
+
+@media(max-width:480px){
+  .headline { font-size:34px; }
+  .wireframes-grid { grid-template-columns:1fr; }
+}
+</style>

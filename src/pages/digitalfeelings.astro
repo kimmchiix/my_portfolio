@@ -4,6 +4,7 @@ import "../style/global.css";
 import Navi from "../components/Navi.astro";
 import Footer from "../components/Footer.astro";
 import HeroVideo from "../components/Df_herovideo.astro";
+import AboutHeader from "../components/AboutHeader.astro";
 import Facts from "../components/Facts.astro"
 import FullImage from "../components/FullImage.astro";
 
@@ -70,10 +71,15 @@ import OffsetImage from "../components/OffsetImage.astro";
 ---
 <Layout>
     <Navi />
-    <HeroVideo 
+    <!-- <HeroVideo 
   videoSrc="/videos/dgi-hero-video.mp4"
   headline="Digital Feelings Initiative: Designing Emotion in the Digital Age"
-/>
+/> -->
+   <AboutHeader
+ subheadline="Website Design"
+ headline="Digital Feelings Initiative"
+ text="Digital Feelings Initiative is a project focused on exploring the intersection of technology and human emotion."
+ image="/images/dfi-phone-mockup-no-bg.png" />
 <section class="mx-9 xl:mx-[90px] pt-[100px]">
     <Facts facts={facts} />
 </section>
@@ -98,7 +104,7 @@ import OffsetImage from "../components/OffsetImage.astro";
 
             <Video
         src="/videos/dfi-mockup-video.mp4"
-        poster="/images/video-poster.jpg"
+        poster="/images/thumbnail-mockup.png"
         autoplay
         loop
         muted
@@ -111,7 +117,7 @@ import OffsetImage from "../components/OffsetImage.astro";
    
    <FullImage src="/images/dfi-phone-screens.png" alt="Example project image" />
 </section>
-<section class=" ">
+<section class="mt-[100px] ">
 
    <FullImage src="/images/dfi-pc-screen.png" alt="Example project image" />
 </section>

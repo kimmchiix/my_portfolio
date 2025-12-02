@@ -12,11 +12,11 @@ const { facts } = Astro.props as Props;
 ---
 
 <section>
-  <div class="fade-up flex flex-wrap min-lg:flex-row justify-start md:justify-center gap-[50px] md:gap-[130px] xl:gap-[200px] items-start md:items-center">
+  <div class="fade-up flex flex-wrap min-lg:flex-row ml-[30px] justify-center md:justify-center gap-[20px] md:gap-[70px] xl:gap-[100px] align-items-center">
     {facts.map((fact: Fact) => (
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-4 align-items-center text-center justify-baseline">
         <p class="facts"><strong>{fact.title}</strong></p>
-        <p class="fact-subtitle">{fact.subtitle}</p>
+        <p class="fact-subtitle w-[120px] md:max-w-[230px]">{fact.subtitle}</p>
       </div>
     ))}
   </div>
